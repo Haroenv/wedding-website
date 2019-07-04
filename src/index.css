@@ -40,6 +40,8 @@ textarea {
   background: inherit;
   font: inherit;
   border: 1px solid currentColor;
+  padding: 1em;
+  line-height: 2;
 }
 
 .input-group {
