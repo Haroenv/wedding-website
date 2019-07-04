@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124" version="1.1">
+  <polygon
+    stroke="#FFFFFF"
+    fill="transparent"
+    stroke-width="5"
+    points="2 22 2 102 42 102 42 82 22 82 22 122 102 122 102 82 82 82 82 102 122 102 122 22 82 22 82 42 102 42 102 2 22 2 22 42 42 42 42 22"
+  />
+</svg>
