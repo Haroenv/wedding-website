@@ -1,5 +1,5 @@
 import React from 'react';
-import image from './55-swimmingpool.jpg';
+import image from './us-two.jpg';
 
 function Form({ name, number }) {
   return (
