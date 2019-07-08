@@ -114,6 +114,20 @@ const App: FunctionComponent<{
 
   return (
     <>
+      <div className="languages">
+        <button
+          className={`language ${language === 'en' ? 'active' : ''}`}
+          onClick={() => setLanguage('en')}
+        >
+          🇬🇧
+        </button>
+        <button
+          className={`language ${language === 'nl' ? 'active' : ''}`}
+          onClick={() => setLanguage('nl')}
+        >
+          🇧🇪
+        </button>
+      </div>
       <h1 className="futura">{getText('you_are_invited')}</h1>
       <p className="script subtitle">{name}</p>
       <p className="futura">{getText('the_wedding_of')}</p>

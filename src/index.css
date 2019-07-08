@@ -129,3 +129,23 @@ p {
 .inline-radio hr {
   margin: 0;
 }
+
+.languages {
+  /* TODO: decide on position */
+  /* position: absolute; */
+  /* top: 0; */
+  /* right: 0; */
+  /* margin: 1em; */
+}
+
+button.language {
+  background: none;
+  color: inherit;
+  font: inherit;
+  border: none;
+  text-shadow: 0 0 0.25em currentColor;
+}
+
+button.language.active {
+  font-size: 1.5em;
+}
