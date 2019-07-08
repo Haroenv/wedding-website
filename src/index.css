@@ -4,6 +4,7 @@ body {
   max-width: 60em;
   font-family: Cochin, Palatino, serif;
   font-size: 1.2em;
+  line-height: 2;
   text-align: center;
   background: black;
   color: white;
@@ -14,10 +15,29 @@ body {
 }
 
 fieldset,
-hr {
+hr,
+textarea {
   border-style: solid;
   border-color: currentColor;
   border-width: 1px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+hr.flourish {
+  width: 80%;
+  border: none;
+  border-top: 1px solid currentColor;
+  height: 0.5em;
+}
+
+hr.flourish:after {
+  content: '/ /';
+  display: inline-block;
+  position: relative;
+  top: -1em;
 }
 
 .futura {
@@ -75,13 +95,26 @@ p {
   justify-content: space-between;
 }
 
-.inline-radio .inner label {
-  padding: 0 1em;
-  margin: 1em auto;
+.inline-radio .inner div {
+  margin: 0 auto;
+  width: 100%;
 }
 
-.inline-radio input {
-  display: none;
+.inline-radio .inner label {
+  display: block;
+  padding: 1em;
+  width: 100%;
+}
+
+.visibly-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 .inline-radio input:checked ~ label {
@@ -90,6 +123,5 @@ p {
 }
 
 .inline-radio hr {
-  margin-block-start: 0;
-  margin-block-end: 0;
+  margin: 0;
 }

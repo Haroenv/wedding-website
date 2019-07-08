@@ -1,19 +1,31 @@
 import React from 'react';
 import image from './us-two.jpg';
 
+const onSubmit = e => {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  console.log([...data]);
+};
+
 function Form({ name, number }) {
   return (
-    <form className="futura">
+    <form className="futura" onSubmit={onSubmit}>
       <div className="input-group">
-        <label htmlFor="name">Names</label>
-        <input type="text" id="name" name="name" defaultValue={name} required />
+        <label htmlFor="form-names">Names</label>
+        <input
+          type="text"
+          id="form-names"
+          name="names"
+          defaultValue={name}
+          required
+        />
       </div>
       <div className="input-group">
-        <label htmlFor="number">Number of guests</label>
+        <label htmlFor="form-number-guests">Number of guests</label>
         <input
-          type="number"
+          type="form-number-guests"
           id="number"
-          name="number"
+          name="guests"
           defaultValue={number}
           min="0"
           max={number + 2}
@@ -21,9 +33,9 @@ function Form({ name, number }) {
         />
       </div>
       <div className="input-group">
-        <label htmlFor="comments">Other comments</label>
+        <label htmlFor="form-comments">Other comments</label>
         <textarea
-          id="comments"
+          id="form-comments"
           name="comments"
           rows="5"
           placeholder="e.g. “I would prefer if the food is vegetarian and the venue is wheelchair accessible.”"
@@ -33,14 +45,41 @@ function Form({ name, number }) {
       <fieldset className="inline-radio">
         <legend>RSVP</legend>
         <div className="inner">
-          <input required type="radio" name="rsvp" id="yes" />
-          <label htmlFor="yes">Will come</label>
+          <div>
+            <input
+              className="visibly-hidden"
+              required
+              type="radio"
+              name="rsvp"
+              id="form-rsvp-yes"
+              value="yes"
+            />
+            <label htmlFor="form-rsvp-yes">Will come</label>
+          </div>
           <hr />
-          <input required type="radio" name="rsvp" id="maybe" />
-          <label htmlFor="maybe">Might come</label>
+          <div>
+            <input
+              className="visibly-hidden"
+              required
+              type="radio"
+              name="rsvp"
+              id="form-rsvp-maybe"
+              value="maybe"
+            />
+            <label htmlFor="form-rsvp-maybe">Might come</label>
+          </div>
           <hr />
-          <input required type="radio" name="rsvp" id="no" />
-          <label htmlFor="no">Won’t come</label>
+          <div>
+            <input
+              className="visibly-hidden"
+              required
+              type="radio"
+              name="rsvp"
+              id="form-rsvp-no"
+              value="no"
+            />
+            <label htmlFor="form-rsvp-no">Won’t come</label>
+          </div>
         </div>
       </fieldset>
 
@@ -61,7 +100,7 @@ function App({ name, number }) {
       <img src={image} alt="us together, looking amazing" className="border" />
       <p className="futura">Early August</p>
       <p className="futura medium">2021</p>
-      <hr />
+      <hr className="flourish" />
       <p>
         Of course it's still too early now to decide on an exact date or venue,
         but we would love to have you attend! We know it will be around the
