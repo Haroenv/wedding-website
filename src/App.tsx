@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FunctionComponent } from 'react';
 import image from './us-two.jpg';
 import { getTranslation, TranslationKey, Language } from './translations';
 
@@ -104,15 +104,11 @@ const Form: React.FunctionComponent<{
   );
 };
 
-function App({
-  name,
-  number,
-  defaultLanguage,
-}: {
+const App: FunctionComponent<{
   name: string;
   number: number;
   defaultLanguage: Language;
-}) {
+}> = ({ name, number, defaultLanguage }) => {
   const [language, setLanguage] = useState(defaultLanguage);
   const getText = (key: TranslationKey) => getTranslation(language, key);
 
@@ -130,6 +126,6 @@ function App({
       <Form name={name} number={number} getText={getText} />
     </>
   );
-}
+};
 
 export default App;
