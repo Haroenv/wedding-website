@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import image from './us-two.jpg';
+import { getTranslation, TranslationKey, Language } from './translations';
 
-const onSubmit = e => {
-  e.preventDefault();
-  const data = new FormData(e.target);
-  console.log([...data]);
-};
+function Form({
+  name,
+  number,
+  getText,
+}: {
+  name: any;
+  number: any;
+  getText: any;
+}) {
+  const [submitted, setSubmitted] = useState(false);
 
-function Form({ name, number }) {
   return (
-    <form className="futura" onSubmit={onSubmit}>
+    <form
+      className="futura"
+      onSubmit={e => {
+        e.preventDefault();
+        const data = new FormData(e.target as HTMLFormElement);
+        console.log(new Map(data));
+        setSubmitted(true);
+      }}
+    >
       <div className="input-group">
         <label htmlFor="form-names">Names</label>
         <input
@@ -21,7 +34,7 @@ function Form({ name, number }) {
         />
       </div>
       <div className="input-group">
-        <label htmlFor="form-number-guests">Number of guests</label>
+        <label htmlFor="form-number-guests">{getText('number_guests')}</label>
         <input
           type="form-number-guests"
           id="number"
@@ -37,7 +50,7 @@ function Form({ name, number }) {
         <textarea
           id="form-comments"
           name="comments"
-          rows="5"
+          rows={5}
           placeholder="e.g. “I would prefer if the food is vegetarian and the venue is wheelchair accessible.”"
         />
       </div>
@@ -84,31 +97,38 @@ function Form({ name, number }) {
       </fieldset>
 
       <div className="input-group">
+        {submitted ? 'Submission received' : null}
         <input type="submit" value="Send" />
       </div>
     </form>
   );
 }
 
-function App({ name, number }) {
+function App({
+  name,
+  number,
+  defaultLanguage,
+}: {
+  name: string;
+  number: number;
+  defaultLanguage: Language;
+}) {
+  const [language, setLanguage] = useState(defaultLanguage);
+  const getText = (key: TranslationKey) => getTranslation(language, key);
+
   return (
-    <div className="App">
-      <h1 className="futura">You are invited</h1>
+    <>
+      <h1 className="futura">{getText('you_are_invited')}</h1>
       <p className="script subtitle">{name}</p>
-      <p className="futura">to the wedding of</p>
-      <p className="subtitle script">Abi &amp; Haroen</p>
-      <img src={image} alt="us together, looking amazing" className="border" />
-      <p className="futura">Early August</p>
+      <p className="futura">{getText('the_wedding_of')}</p>
+      <p className="subtitle script">{getText('abi_and_haroen')}</p>
+      <img src={image} alt={getText('image_alt')} className="border" />
+      <p className="futura">{getText('timing')}</p>
       <p className="futura medium">2021</p>
       <hr className="flourish" />
-      <p>
-        Of course it's still too early now to decide on an exact date or venue,
-        but we would love to have you attend! We know it will be around the
-        beginning of August 2021, and somewhere in France so all of you will
-        have to travel a bit.
-      </p>
-      <Form name={name} number={number} />
-    </div>
+      <p>{getText('paragraph_1')}</p>
+      <Form name={name} number={number} getText={getText} />
+    </>
   );
 }
 
