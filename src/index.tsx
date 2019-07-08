@@ -4,6 +4,6 @@ import './index.css';
 import App from './App';
 
 ReactDOM.render(
-  <App name={'Jackie & Ivan'} number={2} defaultLanguage={'nl'} />,
+  <App name={'Jackie & Ivan'} number={2} defaultLanguage={'en'} />,
   document.getElementById('root')
 );

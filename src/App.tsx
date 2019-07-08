@@ -2,15 +2,11 @@ import React, { useState } from 'react';
 import image from './us-two.jpg';
 import { getTranslation, TranslationKey, Language } from './translations';
 
-function Form({
-  name,
-  number,
-  getText,
-}: {
-  name: any;
-  number: any;
-  getText: any;
-}) {
+const Form: React.FunctionComponent<{
+  name: string;
+  number: number;
+  getText: (key: TranslationKey) => string;
+}> = ({ name, number, getText }) => {
   const [submitted, setSubmitted] = useState(false);
 
   return (
@@ -24,7 +20,7 @@ function Form({
       }}
     >
       <div className="input-group">
-        <label htmlFor="form-names">Names</label>
+        <label htmlFor="form-names">{getText('form_names')}</label>
         <input
           type="text"
           id="form-names"
@@ -34,29 +30,31 @@ function Form({
         />
       </div>
       <div className="input-group">
-        <label htmlFor="form-number-guests">{getText('number_guests')}</label>
+        <label htmlFor="form-number-guests">
+          {getText('form_number_guests')}
+        </label>
         <input
           type="form-number-guests"
           id="number"
           name="guests"
-          defaultValue={number}
+          defaultValue={number.toString()}
           min="0"
           max={number + 2}
           required
         />
       </div>
       <div className="input-group">
-        <label htmlFor="form-comments">Other comments</label>
+        <label htmlFor="form-comments">{getText('form_comments')}</label>
         <textarea
           id="form-comments"
           name="comments"
           rows={5}
-          placeholder="e.g. “I would prefer if the food is vegetarian and the venue is wheelchair accessible.”"
+          placeholder={getText('form_comments_placeholder')}
         />
       </div>
 
       <fieldset className="inline-radio">
-        <legend>RSVP</legend>
+        <legend>{getText('form_rsvp')}</legend>
         <div className="inner">
           <div>
             <input
@@ -67,7 +65,7 @@ function Form({
               id="form-rsvp-yes"
               value="yes"
             />
-            <label htmlFor="form-rsvp-yes">Will come</label>
+            <label htmlFor="form-rsvp-yes">{getText('form_rsvp_yes')}</label>
           </div>
           <hr />
           <div>
@@ -79,7 +77,9 @@ function Form({
               id="form-rsvp-maybe"
               value="maybe"
             />
-            <label htmlFor="form-rsvp-maybe">Might come</label>
+            <label htmlFor="form-rsvp-maybe">
+              {getText('form_rsvp_maybe')}
+            </label>
           </div>
           <hr />
           <div>
@@ -91,18 +91,18 @@ function Form({
               id="form-rsvp-no"
               value="no"
             />
-            <label htmlFor="form-rsvp-no">Won’t come</label>
+            <label htmlFor="form-rsvp-no">{getText('form_rsvp_no')}</label>
           </div>
         </div>
       </fieldset>
 
       <div className="input-group">
-        {submitted ? 'Submission received' : null}
-        <input type="submit" value="Send" />
+        {submitted ? getText('form_received') : null}
+        <input type="submit" value={getText('form_submit')} />
       </div>
     </form>
   );
-}
+};
 
 function App({
   name,

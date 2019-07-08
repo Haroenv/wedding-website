@@ -76,6 +76,10 @@ textarea {
   line-height: 2;
 }
 
+input[type='submit'] {
+  text-transform: inherit;
+}
+
 .input-group {
   margin: 1em auto;
   display: flex;
