@@ -24,7 +24,7 @@ export const Dutch: typeof English = {
   the_wedding_of: 'het huwelijk van',
   abi_and_haroen: 'Abi & Haroen',
   image_alt: 'ons samen, die er super uit zien',
-  timing: 'Vroeg augustus',
+  timing: 'Begin augustus',
   paragraph_1:
     'Natuurlijk is het nog veel te vroeg om de exacte data en plaats te beslissen, maar we zouden het super vinden als jullie komen! We hebben beslist dat we zullen trouwen rond het begin van Augustus 2021, en dat het ergens in Frankrijk zal zijn zodat iedereen een beetje moet reizen.',
   form_number_guests: 'Aantal gasten',
