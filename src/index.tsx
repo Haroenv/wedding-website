@@ -11,16 +11,20 @@ type Data = {
 
 function Wrapper() {
   const [data, setData] = useState<Data | undefined>(undefined);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     fetch('/.netlify/functions/fetch-info')
       .then(res => res.json())
       .then(res => setData(res))
-      .catch(err => console.log(err));
+      .catch(err => setError(err));
   }, []);
 
   if (!data) {
     return null;
+  }
+  if (error) {
+    return <>{error.message}</>;
   }
   return <App name={data.name} number={data.number} defaultLanguage={'en'} />;
 }
