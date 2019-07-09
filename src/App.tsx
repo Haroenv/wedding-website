@@ -34,8 +34,8 @@ const Form: React.FunctionComponent<{
           {getText('form_number_guests')}
         </label>
         <input
-          type="form-number-guests"
-          id="number"
+          type="number"
+          id="form-number-guests"
           name="guests"
           defaultValue={number.toString()}
           min="0"
