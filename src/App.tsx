@@ -1,4 +1,4 @@
-import React, { useState, FunctionComponent } from 'react';
+import React, { useState, useEffect, FunctionComponent } from 'react';
 import image from './us-two.jpg';
 import { getTranslation, TranslationKey, Language } from './translations';
 
@@ -111,6 +111,10 @@ const App: FunctionComponent<{
 }> = ({ name, number, defaultLanguage }) => {
   const [language, setLanguage] = useState(defaultLanguage);
   const getText = (key: TranslationKey) => getTranslation(language, key);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   return (
     <>
