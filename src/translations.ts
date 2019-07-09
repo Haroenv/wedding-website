@@ -21,7 +21,7 @@ export const English = {
 
 export const Dutch: typeof English = {
   you_are_invited: 'Je bent uitgenodigd',
-  the_wedding_of: 'het huwelijk van',
+  the_wedding_of: 'voor het huwelijk van',
   abi_and_haroen: 'Abi & Haroen',
   image_alt: 'ons samen, die er super uit zien',
   timing: 'Begin augustus',
