@@ -60,7 +60,7 @@ hr.flourish:after {
 
 .border {
   /* filter: grayscale(1); */
-  max-height: 50vh;
+  height: 50vh;
   border-width: 1em;
   border-image: url('./border.svg');
   border-image-slice: 40%;
