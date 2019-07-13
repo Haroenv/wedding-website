@@ -2,12 +2,33 @@ import React, { useState, useEffect, FunctionComponent } from 'react';
 import image from './us-two.jpg';
 import { getTranslation, TranslationKey, Language } from './translations';
 
+type FormState = 'clean' | 'submitting' | 'submitted' | 'failed';
+
+type GetText = (key: TranslationKey) => string;
+
+const getFormStateText = (getText: GetText, formState: FormState): string => {
+  switch (formState) {
+    case 'clean': {
+      return '';
+    }
+    case 'submitting': {
+      return getText('form_message_submitting');
+    }
+    case 'submitted': {
+      return getText('form_message_submitted');
+    }
+    case 'failed': {
+      return getText('form_message_failed');
+    }
+  }
+};
+
 const Form: React.FunctionComponent<{
   name: string;
   number: number;
-  getText: (key: TranslationKey) => string;
+  getText: GetText;
 }> = ({ name, number, getText }) => {
-  const [submitted, setSubmitted] = useState(false);
+  const [formState, setFormState] = useState<FormState>('clean');
 
   return (
     <form
@@ -15,8 +36,32 @@ const Form: React.FunctionComponent<{
       onSubmit={e => {
         e.preventDefault();
         const data = new FormData(e.target as HTMLFormElement);
-        console.log(new Map(data));
-        setSubmitted(true);
+        const url = new URL(window.location.href);
+        url.pathname = '/.netlify/functions/post-info';
+        setFormState('submitting');
+        fetch(url.href, {
+          method: 'POST',
+          body: JSON.stringify([...data]),
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+          .then(res => {
+            if (res.ok) {
+              return res.json();
+            } else {
+              throw new Error('submission failed');
+            }
+          })
+          .then(res => {
+            console.log(res);
+            setFormState('submitted');
+          })
+          .catch(err => {
+            console.log(err);
+            setFormState('failed');
+          });
       }}
     >
       <div className="input-group">
@@ -97,7 +142,7 @@ const Form: React.FunctionComponent<{
       </fieldset>
 
       <div className="input-group">
-        {submitted ? getText('form_received') : null}
+        {formState === 'clean' ? null : getFormStateText(getText, formState)}
         <input type="submit" value={getText('form_submit')} />
       </div>
     </form>

@@ -15,8 +15,10 @@ export const English = {
   form_rsvp_yes: 'Will come',
   form_rsvp_maybe: 'Might come',
   form_rsvp_no: 'Won’t come',
-  form_received: 'Submission received',
   form_submit: 'Send',
+  form_message_submitting: 'Submitting…',
+  form_message_submitted: 'Submission received',
+  form_message_failed: 'An error occurred sending, please retry',
 };
 
 export const Dutch: typeof English = {
@@ -36,8 +38,10 @@ export const Dutch: typeof English = {
   form_rsvp_yes: 'zal komen',
   form_rsvp_maybe: 'wil komen',
   form_rsvp_no: 'zal niet komen',
-  form_received: 'Bericht ontvangen',
   form_submit: 'Verzenden',
+  form_message_submitting: 'Aan het verzenden…',
+  form_message_submitted: 'Bericht ontvangen',
+  form_message_failed: 'Er was een probleem bij het verzenden, probeer opnieuw',
 };
 
 const languages = { en: English, nl: Dutch };
