@@ -123,13 +123,17 @@ const App: FunctionComponent<{
           className={`language ${language === 'en' ? 'active' : ''}`}
           onClick={() => setLanguage('en')}
         >
-          🇬🇧
+          <span role="img" aria-label="English">
+            🇬🇧
+          </span>
         </button>
         <button
           className={`language ${language === 'nl' ? 'active' : ''}`}
           onClick={() => setLanguage('nl')}
         >
-          🇧🇪
+          <span role="img" aria-label="Nederlands">
+            🇧🇪
+          </span>
         </button>
       </div>
       <h1 className="futura">{getText('you_are_invited')}</h1>
