@@ -6,11 +6,12 @@ const { AIRTABLE_API_KEY, AIRTABLE_BASE } = process.env;
 
 export async function handler(event, context) {
   try {
+    const { id } = event.queryStringParameters;
     const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(AIRTABLE_BASE);
 
     const {
       fields: { name, 'number of people': number, language },
-    } = await base('Invitations').find('recu1wxdt7GUx00qJ');
+    } = await base('Invitations').find(id);
 
     return {
       statusCode: 200,
