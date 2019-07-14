@@ -1,6 +1,6 @@
 export const English = {
   you_are_invited: 'You are invited',
-  the_wedding_of: 'the wedding of',
+  the_wedding_of: 'to the wedding of',
   abi_and_haroen: 'Abi & Haroen',
   image_alt: 'us together, looking amazing',
   timing: 'Early August',
@@ -19,6 +19,7 @@ export const English = {
   form_message_submitting: 'Submitting…',
   form_message_submitted: 'Submission received',
   form_message_failed: 'An error occurred sending, please retry',
+  switch_language: 'Verander naar Nederlands',
 };
 
 export const Dutch: typeof English = {
@@ -42,6 +43,7 @@ export const Dutch: typeof English = {
   form_message_submitting: 'Aan het verzenden…',
   form_message_submitted: 'Bericht ontvangen',
   form_message_failed: 'Er was een probleem bij het verzenden, probeer opnieuw',
+  switch_language: 'Switch to English',
 };
 
 const languages = { en: English, nl: Dutch };

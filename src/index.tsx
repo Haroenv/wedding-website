@@ -48,7 +48,15 @@ function Wrapper() {
   if (!data) {
     return null;
   }
-  return <App name={data.name} number={data.number} defaultLanguage={'en'} />;
+  const defaultLanguage =
+    (data.language || []).indexOf('Dutch') > -1 ? 'nl' : 'en';
+  return (
+    <App
+      name={data.name}
+      number={data.number}
+      defaultLanguage={defaultLanguage}
+    />
+  );
 }
 
 ReactDOM.render(<Wrapper />, document.getElementById('root'));

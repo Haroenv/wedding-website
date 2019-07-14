@@ -18,12 +18,15 @@ a {
   box-sizing: border-box;
 }
 
+input,
 fieldset,
 hr,
-textarea {
+textarea,
+button {
   border-style: solid;
   border-color: currentColor;
   border-width: 1px;
+  border-radius: 0;
 }
 
 textarea {
@@ -71,11 +74,11 @@ hr.flourish:after {
 }
 
 input,
-textarea {
+textarea,
+button {
   color: inherit;
   background: inherit;
   font: inherit;
-  border: 1px solid currentColor;
   padding: 1em;
   line-height: 2;
 }
@@ -112,6 +115,7 @@ p {
   display: block;
   padding: 1em;
   width: 100%;
+  height: 100%;
 }
 
 .visibly-hidden {
@@ -134,22 +138,14 @@ p {
   margin: 0;
 }
 
-.languages {
-  /* TODO: decide on position */
-  /* position: absolute; */
-  /* top: 0; */
-  /* right: 0; */
-  /* margin: 1em; */
+.language {
+  padding: 0.2em 1em;
 }
 
-button.language {
-  background: none;
-  color: inherit;
-  font: inherit;
-  border: none;
-  text-shadow: 0 0 0.25em currentColor;
-}
-
-button.language.active {
-  font-size: 1.5em;
+@media (min-width: 940px) {
+  .language {
+    position: absolute;
+    left: 1em;
+    top: 2em;
+  }
 }

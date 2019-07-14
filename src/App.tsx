@@ -161,26 +161,14 @@ const App: FunctionComponent<{
     document.documentElement.lang = language;
   }, [language]);
 
+  const toggleLanguage = () =>
+    language === 'en' ? setLanguage('nl') : setLanguage('en');
+
   return (
     <>
-      <div className="languages">
-        <button
-          className={`language ${language === 'en' ? 'active' : ''}`}
-          onClick={() => setLanguage('en')}
-        >
-          <span role="img" aria-label="English">
-            🇬🇧
-          </span>
-        </button>
-        <button
-          className={`language ${language === 'nl' ? 'active' : ''}`}
-          onClick={() => setLanguage('nl')}
-        >
-          <span role="img" aria-label="Nederlands">
-            🇧🇪
-          </span>
-        </button>
-      </div>
+      <button className="language" onClick={toggleLanguage}>
+        {getText('switch_language')}
+      </button>
       <h1 className="futura">{getText('you_are_invited')}</h1>
       <p className="script subtitle">{name}</p>
       <p className="futura">{getText('the_wedding_of')}</p>
