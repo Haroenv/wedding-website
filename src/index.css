@@ -38,6 +38,7 @@ hr.flourish {
   border: none;
   border-top: 1px solid currentColor;
   height: 0.5em;
+  overflow: visible;
 }
 
 hr.flourish:after {
