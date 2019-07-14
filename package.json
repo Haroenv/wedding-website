@@ -6,6 +6,7 @@
     "@types/airtable": "^0.5.2",
     "airtable": "^0.6.0",
     "dotenv": "^8.0.0",
+    "object.fromentries": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"

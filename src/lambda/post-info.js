@@ -1,4 +1,5 @@
 import Airtable from 'airtable';
+import ObjectFromEntries from 'object.fromentries';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -10,7 +11,7 @@ export async function handler(event, context) {
       throw new Error('no data returned');
     }
     const { id: invitation_id } = event.queryStringParameters;
-    const { names, guests, comments, rsvp } = Object.fromEntries(
+    const { names, guests, comments, rsvp } = ObjectFromEntries(
       JSON.parse(event.body)
     );
 
