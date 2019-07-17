@@ -10,10 +10,9 @@ type Data = {
 };
 
 const errorSubject = 'Received an error signing up';
-const emailAddress = 'help@abi-and-haroen.com';
-const errorMailto = `mailto:${emailAddress}?subject=${encodeURIComponent(
-  errorSubject
-)}`;
+const emailAddress = 'help@abi-and-haroen.fr';
+const errorMailto = new URL(`mailto:${emailAddress}`);
+errorMailto.searchParams.set('subject', errorSubject);
 
 function Wrapper() {
   const [data, setData] = useState<Data | undefined>(undefined);
@@ -40,7 +39,7 @@ function Wrapper() {
         <p>Sorry, </p>
         <p>{error.message}</p>
         <p>
-          Please email us: <a href={errorMailto}>help@abi-and-haroen.com</a>
+          Please email us: <a href={errorMailto.href}>{emailAddress}</a>
         </p>
       </>
     );
