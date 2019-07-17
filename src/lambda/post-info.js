@@ -10,7 +10,7 @@ export async function handler(event, context) {
     if (event.httpMethod !== 'POST' || !event.body) {
       throw new Error('no data returned');
     }
-    const { id: invitation_id } = event.queryStringParameters;
+    const { id } = event.queryStringParameters;
     const { names, guests, comments, rsvp } = ObjectFromEntries(
       JSON.parse(event.body)
     );
@@ -22,7 +22,7 @@ export async function handler(event, context) {
       number_guests: parseInt(guests, 10),
       comments,
       rsvp,
-      invitation_id,
+      invitation: [id],
     });
 
     return {
