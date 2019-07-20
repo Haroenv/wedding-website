@@ -6,6 +6,7 @@ export const English = {
   timing: 'Early August',
   paragraph_1:
     "Of course it's still too early now to decide on an exact date or venue, but we would love to have you attend! We know it will be around the beginning of August 2021, and somewhere in France so all of you will have to travel a bit.",
+  cta_email: 'Tell us your answer',
   form_names: 'Names',
   form_number_guests: 'Number of guests',
   form_comments: 'Other comments',
@@ -30,6 +31,7 @@ export const Dutch: typeof English = {
   timing: 'Begin augustus',
   paragraph_1:
     'Natuurlijk is het nog veel te vroeg om de exacte data en plaats te beslissen, maar we zouden het super vinden als jullie komen! We hebben beslist dat we zullen trouwen rond het begin van Augustus 2021, en dat het ergens in Frankrijk zal zijn zodat iedereen een beetje moet reizen.',
+  cta_email: 'Laat ons je antwoord weten',
   form_number_guests: 'Aantal gasten',
   form_names: 'Namen',
   form_comments: 'Opmerkingen',
