@@ -1,0 +1,27 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Parisienne" href="https://fonts.googleapis.com/css?family=Parisienne" />
+    <mj-attributes>
+      <mj-class name="font-parisienne" font-family="Parisienne" font-size="3.5rem" />
+      <mj-class name="font-futura" font-family="Futura, Trebuchet MS, sans-serif" text-transform="uppercase" />
+      <mj-text align="center" color="white" padding-top="32px" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="black">
+    <mj-section full-width="full-width" background-color="black">
+      <mj-column css-class="center" width="100%">
+        <mj-text mj-class="font-futura" font-size="20px">
+          {{you_are_invited}}
+        </mj-text>
+        <mj-text mj-class="font-parisienne">{{name}}</mj-text>
+        <mj-text mj-class="font-futura">{{the_wedding_of}}</mj-text>
+        <mj-text mj-class="font-parisienne">{{abi_and_haroen}}</mj-text>
+        <mj-text mj-class="font-futura">{{timing}}</mj-text>
+        <mj-text mj-class="font-futura">2021</mj-text>
+        <mj-button mj-class="font-futura" color="white" background-color="black" border="1px solid white" border-radius="0" href="#">
+          {{cta_email}}
+        </mj-button>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
