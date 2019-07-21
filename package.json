@@ -2,10 +2,12 @@
   "name": "wedding-website",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@types/airtable": "^0.5.2",
     "airtable": "^0.6.0",
     "dotenv": "^8.0.0",
+    "mjml": "^4.4.0",
     "object.fromentries": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
