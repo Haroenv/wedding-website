@@ -10,6 +10,7 @@ const getAdjacentFile = name => {
   return file;
 };
 
+// TODO: import this from TS (not possible now because running directly in node)
 const lang = {
   you_are_invited: 'You are invited',
   the_wedding_of: 'to the wedding of',
