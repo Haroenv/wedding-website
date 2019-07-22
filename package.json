@@ -21,7 +21,8 @@
     "build": "run-p build:**",
     "build:app": "react-scripts build",
     "build:lambda": "netlify-lambda build src/lambda",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "emails": "./scripts/email.js"
   },
   "eslintConfig": {
     "extends": "react-app"
