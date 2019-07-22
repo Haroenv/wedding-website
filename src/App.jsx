@@ -1,12 +1,21 @@
-import React, { useState, useEffect, FunctionComponent } from 'react';
+import React, { useState, useEffect } from 'react';
 import image from './us-two.jpg';
-import { getTranslation, TranslationKey, Language } from './translations';
+import { getTranslation } from './translations';
 
-type FormState = 'clean' | 'submitting' | 'submitted' | 'failed';
+/**
+ * @typedef {(key: import('./translations').TranslationKey) => string} GetText
+ */
 
-type GetText = (key: TranslationKey) => string;
+/**
+ * @typedef {'clean' | 'submitting' | 'submitted' | 'failed'} FormState
+ */
 
-const getFormStateText = (getText: GetText, formState: FormState): string => {
+/**
+ * @param {GetText} getText
+ * @param {FormState} formState
+ * @returns string
+ */
+const getFormStateText = (getText, formState) => {
   switch (formState) {
     case 'clean': {
       return '';
@@ -20,22 +29,26 @@ const getFormStateText = (getText: GetText, formState: FormState): string => {
     case 'failed': {
       return getText('form_message_failed');
     }
+    default: {
+      return '';
+    }
   }
 };
 
-const Form: React.FunctionComponent<{
-  name: string;
-  number: number;
-  getText: GetText;
-}> = ({ name, number, getText }) => {
-  const [formState, setFormState] = useState<FormState>('clean');
+/**
+ * @type {React.FunctionComponent<{name: string; number: number; getText: GetText}>}
+ */
+const Form = ({ name, number, getText }) => {
+  // prettier-ignore
+  const [formState, setFormState] = useState(/** @type FormState */('clean'));
 
   return (
     <form
       className="futura"
       onSubmit={e => {
         e.preventDefault();
-        const data = new FormData(e.target as HTMLFormElement);
+        // prettier-ignore
+        const data = new FormData(/** @type HTMLFormElement */(e.target));
         const url = new URL(window.location.href);
         url.pathname = '/.netlify/functions/post-info';
         setFormState('submitting');
@@ -149,13 +162,19 @@ const Form: React.FunctionComponent<{
   );
 };
 
-const App: FunctionComponent<{
-  name: string;
-  number: number;
-  defaultLanguage: Language;
-}> = ({ name, number, defaultLanguage }) => {
+/**
+ * @type {React.FunctionComponent<{
+ *  name: string;
+ *  number: number;
+ *  defaultLanguage: import('./translations').Language}
+ * >}
+ */
+const App = ({ name, number, defaultLanguage }) => {
   const [language, setLanguage] = useState(defaultLanguage);
-  const getText = (key: TranslationKey) => getTranslation(language, key);
+  /**
+   * @param {import('./translations').TranslationKey} key
+   */
+  const getText = key => getTranslation(language, key);
 
   useEffect(() => {
     document.documentElement.lang = language;

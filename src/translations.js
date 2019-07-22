@@ -7,6 +7,7 @@ export const English = {
   paragraph_1:
     "Of course it's still too early now to decide on an exact date or venue, but we would love to have you attend! We know it will be around the beginning of August 2021, and somewhere in France so all of you will have to travel a bit.",
   cta_email: 'Tell us your answer',
+  email_subject: 'You are invited to Abi & Haroens wedding!',
   form_names: 'Names',
   form_number_guests: 'Number of guests',
   form_comments: 'Other comments',
@@ -23,7 +24,10 @@ export const English = {
   switch_language: 'Verander naar Nederlands',
 };
 
-export const Dutch: typeof English = {
+/**
+ * @type {typeof English}
+ */
+export const Dutch = {
   you_are_invited: 'Je bent uitgenodigd',
   the_wedding_of: 'voor het huwelijk van',
   abi_and_haroen: 'Abi & Haroen',
@@ -32,6 +36,7 @@ export const Dutch: typeof English = {
   paragraph_1:
     'Natuurlijk is het nog veel te vroeg om de exacte data en plaats te beslissen, maar we zouden het super vinden als jullie komen! We hebben beslist dat we zullen trouwen rond het begin van Augustus 2021, en dat het ergens in Frankrijk zal zijn zodat iedereen een beetje moet reizen.',
   cta_email: 'Laat ons je antwoord weten',
+  email_subject: 'Je bent uitgenodigd voor de trouw van Haroen & Abi!',
   form_number_guests: 'Aantal gasten',
   form_names: 'Namen',
   form_comments: 'Opmerkingen',
@@ -50,10 +55,19 @@ export const Dutch: typeof English = {
 
 const languages = { en: English, nl: Dutch };
 
-export type Language = keyof typeof languages;
-export type TranslationKey = keyof typeof Dutch | keyof typeof English;
+/**
+ * @typedef {keyof typeof Dutch | keyof typeof English} TranslationKey
+ */
+/**
+ * @typedef {keyof typeof languages} Language
+ */
 
-export const getTranslation = (language: Language, key: TranslationKey) => {
+/**
+ * get a translation value
+ * @param {Language} language
+ * @param {TranslationKey} key
+ */
+export const getTranslation = (language, key) => {
   if (languages[language] && languages[language][key]) {
     return languages[language][key];
   }

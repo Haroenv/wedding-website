@@ -3,20 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-type Data = {
-  name: string;
-  number: number;
-  language: string[];
-};
-
 const errorSubject = 'Received an error signing up';
 const emailAddress = 'help@abi-and-haroen.fr';
 const errorMailto = new URL(`mailto:${emailAddress}`);
 errorMailto.searchParams.set('subject', errorSubject);
 
+/**
+ * @typedef {{
+ *   name: string;
+ *   number: number;
+ *   language: string[];
+ * }} Data
+ */
+
 function Wrapper() {
-  const [data, setData] = useState<Data | undefined>(undefined);
-  const [error, setError] = useState<Error | null>(null);
+  // prettier-ignore
+  const [data, setData] = useState(/** @type Data | undefined */(undefined));
+  // prettier-ignore
+  const [error, setError] = useState(/** @type Error | null */(null));
 
   useEffect(() => {
     const url = new URL(window.location.href);
