@@ -1,9 +1,11 @@
+#!/usr/bin/env node --experimental-modules
+
 import { promises as fs } from 'fs';
 import mjml from 'mjml';
 import dotenv from 'dotenv';
 import Airtable from 'airtable';
 import sgMail from '@sendgrid/mail';
-import { getTranslation } from './translations.js';
+import { getTranslation } from '../src/translations.js';
 const { readFile } = fs;
 dotenv.config();
 
@@ -48,7 +50,10 @@ sgMail.setApiKey(SENDGRID_API_KEY);
  */
 
 async function main() {
-  const template = await readFile(getAdjacentFile('invite.mjml'), 'utf-8');
+  const template = await readFile(
+    getAdjacentFile('../src/invite.mjml'),
+    'utf-8'
+  );
 
   // prettier-ignore
   // @ts-ignore
@@ -74,27 +79,18 @@ async function main() {
     const { html } = mjml(mjmlEmail, { minify: true });
 
     return {
-      html,
-      email: 'help@abi-and-haroen.fr',
       subject: getTranslation(language, 'email_subject'),
+      to: 'help@abi-and-haroen.fr', // email,
+      from: {
+        name: 'Abi & Haroen',
+        email: 'mail@abi-and-haroen',
+      },
+      text: 'and easy to do anywhere, even with Node.js', // @TODO
+      html,
     };
   });
 
-  await Promise.all(
-    emails.map(({ email, html, subject }) => {
-      const msg = {
-        to: email,
-        from: {
-          name: 'Abi & Haroen',
-          email: 'mail@abi-and-haroen',
-        },
-        subject,
-        text: 'and easy to do anywhere, even with Node.js',
-        html,
-      };
-      // return sgMail.send(msg);
-    })
-  );
+  // await sgMail.send(emails, true);
 }
 
 main().catch(console.error);
