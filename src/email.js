@@ -1,49 +1,100 @@
 import { promises as fs } from 'fs';
 import mjml from 'mjml';
+import dotenv from 'dotenv';
+import Airtable from 'airtable';
+import sgMail from '@sendgrid/mail';
+import { getTranslation } from './translations.js';
 const { readFile } = fs;
+dotenv.config();
 
+const {
+  AIRTABLE_API_KEY = '',
+  AIRTABLE_BASE = '',
+  SENDGRID_API_KEY = '',
+} = process.env;
+
+if (
+  AIRTABLE_API_KEY === '' ||
+  AIRTABLE_BASE === '' ||
+  SENDGRID_API_KEY === ''
+) {
+  throw new Error(
+    'pass SENDGRID_API_KEY, AIRTABLE_API_KEY & AIRTABLE_BASE as environment variables'
+  );
+}
+
+/**
+ * get the URL of an adjacent file to the current file using import.meta
+ * @param {string} name
+ */
 const getAdjacentFile = name => {
-  const file = new URL(import.meta.url);
+  const base = import.meta.url;
+  const file = new URL(base);
   const pathname = file.pathname.split('/');
   pathname.splice(-1, 1, name);
   file.pathname = pathname.join('/');
   return file;
 };
 
-// TODO: import this from TS (not possible now because running directly in node)
-const lang = {
-  you_are_invited: 'You are invited',
-  the_wedding_of: 'to the wedding of',
-  abi_and_haroen: 'Abi & Haroen',
-  image_alt: 'us together, looking amazing',
-  timing: 'Early August',
-  paragraph_1:
-    "Of course it's still too early now to decide on an exact date or venue, but we would love to have you attend! We know it will be around the beginning of August 2021, and somewhere in France so all of you will have to travel a bit.",
-  cta_email: 'Tell us your answer',
-  form_names: 'Names',
-  form_number_guests: 'Number of guests',
-  form_comments: 'Other comments',
-  form_comments_placeholder:
-    'e.g. “I would prefer if the food is vegetarian and the venue is wheelchair accessible”. No promises',
-  form_rsvp: 'RSVP',
-  form_rsvp_yes: 'Will come',
-  form_rsvp_maybe: 'Might come',
-  form_rsvp_no: 'Won’t come',
-  form_submit: 'Send',
-  form_message_submitting: 'Submitting…',
-  form_message_submitted: 'Submission received',
-  form_message_failed: 'An error occurred sending, please retry',
-  switch_language: 'Verander naar Nederlands',
-};
+const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(AIRTABLE_BASE);
+sgMail.setApiKey(SENDGRID_API_KEY);
 
-readFile(getAdjacentFile('invite.mjml'))
-  .then(contents =>
-    contents.toString().replace(/{{(.*)}}/g, (_match, token) => {
+/**
+ * @typedef {'Dutch' | 'English'} Language
+ */
+
+/**
+ * @typedef {{name: string; email: string, language: Language[]}} Invitee
+ */
+
+async function main() {
+  const template = await readFile(getAdjacentFile('invite.mjml'), 'utf-8');
+
+  // prettier-ignore
+  // @ts-ignore
+  const invitations = /** @type Airtable.Table<Invitee> */(await base(
+    'Invitations'
+  ));
+
+  const invitees = await invitations.select().firstPage();
+
+  const emails = invitees.map(({ fields, id }) => {
+    const { name, email } = fields;
+    const language = fields.language.includes('Dutch') ? 'nl' : 'en';
+    const mjmlEmail = template.replace(/{{\s*(.*)\s*}}/g, (_match, token) => {
       if (token === 'name') {
-        return 'Mumtaaz';
+        return name;
       }
-      return lang[token];
+      if (token === 'user_id') {
+        return id;
+      }
+      return getTranslation(language, token);
+    });
+
+    const { html } = mjml(mjmlEmail, { minify: true });
+
+    return {
+      html,
+      email: 'help@abi-and-haroen.fr',
+      subject: getTranslation(language, 'email_subject'),
+    };
+  });
+
+  await Promise.all(
+    emails.map(({ email, html, subject }) => {
+      const msg = {
+        to: email,
+        from: {
+          name: 'Abi & Haroen',
+          email: 'mail@abi-and-haroen',
+        },
+        subject,
+        text: 'and easy to do anywhere, even with Node.js',
+        html,
+      };
+      // return sgMail.send(msg);
     })
-  )
-  .then(email => mjml(email))
-  .then(({ html }) => console.log(html));
+  );
+}
+
+main().catch(console.error);
