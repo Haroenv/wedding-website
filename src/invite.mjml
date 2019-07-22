@@ -2,8 +2,8 @@
   <mj-head>
     <mj-font name="Parisienne" href="https://fonts.googleapis.com/css?family=Parisienne" />
     <mj-attributes>
-      <mj-class name="font-parisienne" font-family="Parisienne" font-size="3.5rem" />
-      <mj-class name="font-futura" font-family="Futura, Trebuchet MS, sans-serif" text-transform="uppercase" />
+      <mj-class name="font-parisienne" font-family="Parisienne,'Vladimir Script',cursive" font-size="3.5rem" />
+      <mj-class name="font-futura" font-family="Futura,'Trebuchet MS',sans-serif" text-transform="uppercase" />
       <mj-text align="center" color="white" padding-top="32px" />
     </mj-attributes>
   </mj-head>
