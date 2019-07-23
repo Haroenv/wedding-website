@@ -50,10 +50,7 @@ sgMail.setApiKey(SENDGRID_API_KEY);
  */
 
 async function main() {
-  const template = await readFile(
-    getAdjacentFile('../src/invite.mjml'),
-    'utf-8'
-  );
+  const template = await readFile(getAdjacentFile('invite.mjml'), 'utf-8');
 
   // prettier-ignore
   // @ts-ignore

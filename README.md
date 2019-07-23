@@ -6,6 +6,7 @@ A website for our wedding, using the following stuff:
 - mjml for email bulletproofing
 - Netlify for hosting
 - React for "templating"
+- Reach router for different paths
 - Airtable as a data store
 - TypeScript via checkJS (easier for setup)
 

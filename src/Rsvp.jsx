@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import image from './us-two.jpg';
 import { getTranslation } from './translations';
 
@@ -169,7 +169,7 @@ const Form = ({ name, number, getText }) => {
  *  defaultLanguage: import('./translations').Language}
  * >}
  */
-const App = ({ name, number, defaultLanguage }) => {
+const Rsvp = ({ name, number, defaultLanguage }) => {
   const [language, setLanguage] = useState(defaultLanguage);
   /**
    * @param {import('./translations').TranslationKey} key
@@ -202,4 +202,66 @@ const App = ({ name, number, defaultLanguage }) => {
   );
 };
 
-export default App;
+const errorSubject = 'Received an error signing up';
+const emailAddress = 'help@abi-and-haroen.fr';
+const errorMailto = new URL(`mailto:${emailAddress}`);
+errorMailto.searchParams.set('subject', errorSubject);
+
+/**
+ * @typedef {{
+ *   name: string;
+ *   number: number;
+ *   language: string[];
+ * }} Data
+ */
+
+/**
+ * @type React.FunctionComponent<import('@reach/router').RouteComponentProps>
+ */
+const InfoWrapper = () => {
+  // prettier-ignore
+  const [data, setData] = useState(/** @type Data | undefined */(undefined));
+  // prettier-ignore
+  const [error, setError] = useState(/** @type Error | null */(null));
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    url.pathname = '/.netlify/functions/fetch-info';
+    fetch(url.href)
+      .then(res => {
+        if (res.ok) {
+          return res;
+        } else {
+          throw new Error('could not retrieve user');
+        }
+      })
+      .then(res => res.json())
+      .then(res => setData(res))
+      .catch(err => setError(err));
+  }, []);
+  if (error) {
+    return (
+      <>
+        <p>Sorry, </p>
+        <p>{error.message}</p>
+        <p>
+          Please email us: <a href={errorMailto.href}>{emailAddress}</a>
+        </p>
+      </>
+    );
+  }
+  if (!data) {
+    return null;
+  }
+  const defaultLanguage =
+    (data.language || []).indexOf('Dutch') > -1 ? 'nl' : 'en';
+  return (
+    <Rsvp
+      name={data.name}
+      number={data.number}
+      defaultLanguage={defaultLanguage}
+    />
+  );
+};
+
+export default InfoWrapper;
