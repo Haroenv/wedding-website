@@ -49,8 +49,18 @@ sgMail.setApiKey(SENDGRID_API_KEY);
  * @typedef {{name: string; email: string, language: Language[]}} Invitee
  */
 
+const tokenRegex = /{{\s*(.*)\s*}}/g;
+
 async function main() {
   const template = await readFile(getAdjacentFile('invite.mjml'), 'utf-8');
+  const templateTxtEn = await readFile(
+    getAdjacentFile('invite-en.txt'),
+    'utf-8'
+  );
+  const templateTxtNl = await readFile(
+    getAdjacentFile('invite-nl.txt'),
+    'utf-8'
+  );
 
   // prettier-ignore
   // @ts-ignore
@@ -63,26 +73,42 @@ async function main() {
   const emails = invitees.map(({ fields, id }) => {
     const { name, email } = fields;
     const language = fields.language.includes('Dutch') ? 'nl' : 'en';
-    const mjmlEmail = template.replace(/{{\s*(.*)\s*}}/g, (_match, token) => {
+    const mjmlEmail = template.replace(tokenRegex, (_match, token) => {
       if (token === 'name') {
         return name;
       }
       if (token === 'user_id') {
         return id;
       }
-      return getTranslation(language, token);
+      // prettier-ignore
+      return /** @type string */(getTranslation(language, token));
+    });
+
+    const textEmailTemplate = fields.language.includes('Dutch')
+      ? templateTxtNl
+      : templateTxtEn;
+    const textEmail = textEmailTemplate.replace(tokenRegex, (_match, token) => {
+      if (token === 'name') {
+        return name;
+      }
+      if (token === 'user_id') {
+        return id;
+      }
+      return '';
     });
 
     const { html } = mjml(mjmlEmail, { minify: true });
 
     return {
-      subject: getTranslation(language, 'email_subject'),
-      to: 'help@abi-and-haroen.fr', // email,
+      // prettier-ignore
+      subject: /**@type string */(getTranslation(language, 'email_subject')),
+      to: 'help@abi-and-haroen.fr',
+      // to: email,
       from: {
         name: 'Abi & Haroen',
         email: 'mail@abi-and-haroen',
       },
-      text: 'and easy to do anywhere, even with Node.js', // @TODO
+      text: textEmail,
       html,
     };
   });

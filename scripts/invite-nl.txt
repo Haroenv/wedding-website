@@ -1,0 +1,10 @@
+Dag {{name}}!
+
+Je bent uitgenodigd voor de trouw van Haroen & Abi! We hebben een klein formulier gemaakt om te bevestigen. Je kan dat hier vinden:
+
+https://abi-and-haroen.fr/rsvp?id={{user_id}}
+
+Hopelijk kan je er bij zijn!
+
+Abi & Haroen
+mail@abi-and-haroen.fr
