@@ -4,9 +4,7 @@ import ObjectFromEntries from 'object.fromentries';
 test('English has all keys of Dutch', () => {
   expect(English).toEqual(
     expect.objectContaining(
-      ObjectFromEntries(
-        Object.keys(Dutch).map(key => [key, expect.any(String)])
-      )
+      ObjectFromEntries(Object.keys(Dutch).map(key => [key, expect.anything()]))
     )
   );
 });
@@ -15,7 +13,7 @@ test('Dutch has all keys of English', () => {
   expect(Dutch).toEqual(
     expect.objectContaining(
       ObjectFromEntries(
-        Object.keys(English).map(key => [key, expect.any(String)])
+        Object.keys(English).map(key => [key, expect.anything()])
       )
     )
   );

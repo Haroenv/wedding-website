@@ -4,8 +4,11 @@ export const English = {
   abi_and_haroen: 'Abi & Haroen',
   image_alt: 'us together, looking amazing',
   timing: 'Early August',
-  paragraph_1:
+  paragraphs: [
     "Of course it's still too early now to decide on an exact date or venue, but we would love to have you attend! We know it will be around the beginning of August 2021, and somewhere in France so all of you will have to travel a bit.",
+    'Please use the comments below to let us know anything you need. We will send you another real invite once details have been confirmed.',
+    'If you have any questions, feel free to reach out to us!',
+  ],
   cta_email: 'Tell us your answer',
   email_subject: 'You are invited to Abi & Haroens wedding!',
   form_names: 'Names',
@@ -33,8 +36,12 @@ export const Dutch = {
   abi_and_haroen: 'Abi & Haroen',
   image_alt: 'ons samen, die er super uit zien',
   timing: 'Begin augustus',
-  paragraph_1:
+  paragraphs: [
     'Natuurlijk is het nog veel te vroeg om de exacte data en plaats te beslissen, maar we zouden het super vinden als jullie komen! We hebben beslist dat we zullen trouwen rond het begin van Augustus 2021, en dat het ergens in Frankrijk zal zijn zodat iedereen een beetje moet reizen.',
+    'Je kan het opmerkingen-veld hieronder gebruiken om ons te laten weten wat je nodig hebt.',
+    'We sturen een een bevestiging wanneer we alles vastzetten om jullie op de hoogte te houden.',
+    'Als je vragen hebt, twijfel niet om ons te contacteren.',
+  ],
   cta_email: 'Laat ons je antwoord weten',
   email_subject: 'Je bent uitgenodigd voor de trouw van Haroen & Abi!',
   form_number_guests: 'Aantal gasten',

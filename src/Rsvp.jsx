@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import image from './us-two.jpg';
-import { getTranslation } from './translations';
+import * as Translations from './translations';
 
 /**
- * @typedef {(key: import('./translations').TranslationKey) => string} GetText
+ * @typedef {(key: Translations.TranslationKey) => (typeof Translations.Dutch)[Translations.TranslationKey]} GetText
  */
 
 /**
@@ -107,7 +107,8 @@ const Form = ({ name, number, getText }) => {
           id="form-comments"
           name="comments"
           rows={5}
-          placeholder={getText('form_comments_placeholder')}
+          // prettier-ignore
+          placeholder={/**@type string */(getText('form_comments_placeholder'))}
         />
       </div>
 
@@ -174,7 +175,7 @@ const Rsvp = ({ name, number, defaultLanguage }) => {
   /**
    * @param {import('./translations').TranslationKey} key
    */
-  const getText = key => getTranslation(language, key);
+  const getText = key => Translations.getTranslation(language, key);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -192,11 +193,19 @@ const Rsvp = ({ name, number, defaultLanguage }) => {
       <p className="script subtitle">{name}</p>
       <p className="futura">{getText('the_wedding_of')}</p>
       <p className="subtitle script">{getText('abi_and_haroen')}</p>
-      <img src={image} alt={getText('image_alt')} className="border" />
+      <img
+        src={image}
+        // prettier-ignore
+        alt={/** @type string */(getText('image_alt'))}
+        className="border"
+      />
       <p className="futura">{getText('timing')}</p>
       <p className="futura medium">2021</p>
       <hr className="flourish" />
-      <p>{getText('paragraph_1')}</p>
+      {// prettier-ignore
+      /**@type string[] */ (getText('paragraphs')).map((paragraph, i) => (
+        <p key={i}>{paragraph}</p>
+      ))}
       <Form name={name} number={number} getText={getText} />
     </>
   );
