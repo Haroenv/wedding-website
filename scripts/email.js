@@ -106,7 +106,7 @@ async function main() {
       // to: email,
       from: {
         name: 'Abi & Haroen',
-        email: 'mail@abi-and-haroen',
+        email: 'mail@abi-and-haroen.fr',
       },
       text: textEmail,
       html,
