@@ -71,7 +71,7 @@ async function main() {
   const invitees = await invitations.select().firstPage();
 
   const emails = invitees.map(({ fields, id }) => {
-    const { name, email } = fields;
+    const { name, email = 'help@abi-and-haroen.fr' } = fields;
     const language = fields.language.includes('Dutch') ? 'nl' : 'en';
     const mjmlEmail = template.replace(tokenRegex, (_match, token) => {
       if (token === 'name') {
@@ -102,8 +102,7 @@ async function main() {
     return {
       // prettier-ignore
       subject: /**@type string */(getTranslation(language, 'email_subject')),
-      to: 'help@abi-and-haroen.fr',
-      // to: email,
+      to: email,
       from: {
         name: 'Abi & Haroen',
         email: 'mail@abi-and-haroen.fr',
