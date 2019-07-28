@@ -10,7 +10,7 @@ export const English = {
     'If you have any questions, feel free to reach out to us!',
   ],
   cta_email: 'Tell us your answer',
-  email_subject: 'You are invited to Abi & Haroens wedding!',
+  email_subject: "You are invited to Abi & Haroen's wedding!",
   form_names: 'Names',
   form_number_guests: 'Number of guests',
   form_comments: 'Other comments',
