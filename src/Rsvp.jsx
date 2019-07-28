@@ -98,6 +98,7 @@ const Form = ({ name, number, getText }) => {
           defaultValue={number.toString()}
           min="0"
           max={number + 2}
+          pattern="\\d*"
           required
         />
       </div>
