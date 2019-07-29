@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import image from './us-two.jpg';
 import * as Translations from './translations';
+import 'unfetch/polyfill';
 
 /**
  * @typedef {(key: Translations.TranslationKey) => (typeof Translations.Dutch)[Translations.TranslationKey]} GetText
