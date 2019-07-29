@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import image from './us-two.jpg';
 import * as Translations from './translations';
+// @ts-ignore
 import 'unfetch/polyfill';
 
 /**
@@ -50,6 +51,21 @@ const Form = ({ name, number, getText }) => {
         e.preventDefault();
         // prettier-ignore
         const data = new FormData(/** @type HTMLFormElement */(e.target));
+        if (data.entries === undefined) {
+          // @ts-ignore iterable == array
+          data.entries = function() {
+            return [
+              // @ts-ignore these elements exist for sure
+              ['names', document.querySelector('[name=names]').value],
+              // @ts-ignore these elements exist for sure
+              ['guests', document.querySelector('[name=guests]-guests').value],
+              // @ts-ignore these elements exist for sure
+              ['comments', document.querySelector('[name=comments]').value],
+              // @ts-ignore these elements exist for sure
+              ['rsvp', document.querySelector('[name=rsvp]:checked').value],
+            ];
+          };
+        }
         const url = new URL(window.location.href);
         url.pathname = '/.netlify/functions/post-info';
         setFormState('submitting');
