@@ -215,8 +215,7 @@ const Rsvp = ({ name, number, defaultLanguage }) => {
 
 const errorSubject = 'Received an error signing up';
 const emailAddress = 'help@abi-and-haroen.fr';
-const errorMailto = new URL(`mailto:${emailAddress}`);
-errorMailto.searchParams.set('subject', errorSubject);
+const errorMailto = new URL(`mailto:${emailAddress}?subject=${errorSubject}`);
 
 /**
  * @typedef {{
