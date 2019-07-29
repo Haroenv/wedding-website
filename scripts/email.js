@@ -68,49 +68,71 @@ async function main() {
     'Invitations'
   ));
 
-  const invitees = await invitations.select().firstPage();
+  // prettier-ignore
+  // @ts-ignore
+  const rsvpBase = /** @type Airtable.Table<{invitation:string[]}> */(await base(
+    'RSVP'
+  ));
 
-  const emails = invitees.map(({ fields, id }) => {
-    const { name, email = 'help@abi-and-haroen.fr' } = fields;
-    const language = fields.language.includes('Dutch') ? 'nl' : 'en';
-    const mjmlEmail = template.replace(tokenRegex, (_match, token) => {
-      if (token === 'name') {
-        return name;
-      }
-      if (token === 'user_id') {
-        return id;
-      }
-      // prettier-ignore
-      return /** @type string */(getTranslation(language, token));
+  const rsvps = await rsvpBase.select().all();
+
+  const alreadyInvited = rsvps.flatMap(r => r.fields.invitation);
+
+  const invitees = await invitations.select().all();
+
+  const emails = invitees
+    .filter(({ id }) => {
+      return alreadyInvited.indexOf(id) === -1;
+    })
+    .map(invitee => {
+      const { fields, id } = invitee;
+
+      const { name, email = 'help@abi-and-haroen.fr' } = fields;
+      const language = fields.language.includes('Dutch') ? 'nl' : 'en';
+      const mjmlEmail = template.replace(tokenRegex, (_match, token) => {
+        if (token === 'name') {
+          return name;
+        }
+        if (token === 'user_id') {
+          return id;
+        }
+        // prettier-ignore
+        return /** @type string */(getTranslation(language, token));
+      });
+
+      const textEmailTemplate = fields.language.includes('Dutch')
+        ? templateTxtNl
+        : templateTxtEn;
+      const textEmail = textEmailTemplate.replace(
+        tokenRegex,
+        (_match, token) => {
+          if (token === 'name') {
+            return name;
+          }
+          if (token === 'user_id') {
+            return id;
+          }
+          return '';
+        }
+      );
+
+      const { html } = mjml(mjmlEmail, { minify: true });
+
+      return {
+        // prettier-ignore
+        subject: /**@type string */(getTranslation(language, 'email_subject')),
+        to: {
+          name,
+          email,
+        },
+        from: {
+          name: 'Abi & Haroen',
+          email: 'mail@abi-and-haroen.fr',
+        },
+        text: textEmail,
+        html,
+      };
     });
-
-    const textEmailTemplate = fields.language.includes('Dutch')
-      ? templateTxtNl
-      : templateTxtEn;
-    const textEmail = textEmailTemplate.replace(tokenRegex, (_match, token) => {
-      if (token === 'name') {
-        return name;
-      }
-      if (token === 'user_id') {
-        return id;
-      }
-      return '';
-    });
-
-    const { html } = mjml(mjmlEmail, { minify: true });
-
-    return {
-      // prettier-ignore
-      subject: /**@type string */(getTranslation(language, 'email_subject')),
-      to: email,
-      from: {
-        name: 'Abi & Haroen',
-        email: 'mail@abi-and-haroen.fr',
-      },
-      text: textEmail,
-      html,
-    };
-  });
 
   // await sgMail.send(emails, true);
 }
