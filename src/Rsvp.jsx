@@ -52,6 +52,10 @@ const Form = ({ name, number, getText }) => {
         // prettier-ignore
         const data = new FormData(/** @type HTMLFormElement */(e.target));
         if (data.entries === undefined) {
+          if (document.querySelector('[name=rsvp]:checked') === null) {
+            setFormState('failed');
+            return;
+          }
           // @ts-ignore iterable == array
           data.entries = function() {
             return [
