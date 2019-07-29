@@ -71,7 +71,7 @@ const Form = ({ name, number, getText }) => {
         setFormState('submitting');
         fetch(url.href, {
           method: 'POST',
-          body: JSON.stringify([...data]),
+          body: JSON.stringify([...data.entries()]),
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
