@@ -58,7 +58,7 @@ const Form = ({ name, number, getText }) => {
               // @ts-ignore these elements exist for sure
               ['names', document.querySelector('[name=names]').value],
               // @ts-ignore these elements exist for sure
-              ['guests', document.querySelector('[name=guests]-guests').value],
+              ['guests', document.querySelector('[name=guests]').value],
               // @ts-ignore these elements exist for sure
               ['comments', document.querySelector('[name=comments]').value],
               // @ts-ignore these elements exist for sure
