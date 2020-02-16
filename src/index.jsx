@@ -1,23 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Rsvp from './Rsvp';
+import SaveTheDate from './SaveTheDate';
 import './index.css';
 import * as Reach from '@reach/router';
-
-/**
- * @type React.FunctionComponent<Reach.RouteComponentProps>
- */
-const Index = () => (
-  <div className="vertical-center">
-    <h1 className="futura">Abi &amp; Haroen are getting married!</h1>
-    <p>More info soon</p>
-  </div>
-);
+import Home from './Home';
 
 ReactDOM.render(
   <Reach.Router id="reach-root">
-    <Index path="/" default />
+    <Home path="/" default />
     <Rsvp path="/rsvp" />
+    <SaveTheDate path="/save-the-date" />
   </Reach.Router>,
   document.getElementById('root')
 );

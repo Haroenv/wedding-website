@@ -21,14 +21,14 @@ export async function handler(event, context) {
       throw new Error('no data returned');
     }
     const { id } = event.queryStringParameters || { id: undefined };
-    const { names, guests, comments, rsvp } = ObjectFromEntries(
+    const { baseId, names, guests, comments, rsvp } = ObjectFromEntries(
       JSON.parse(event.body)
     );
 
     const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(AIRTABLE_BASE);
 
     // @ts-ignore
-    const record = await base('RSVP').create({
+    const record = await base(baseId || 'RSVP').create({
       names,
       number_guests: parseInt(guests, 10),
       comments,

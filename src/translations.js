@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from '@reach/router';
+
 export const English = {
   you_are_invited: 'You are invited',
   the_wedding_of: 'to the wedding of',
@@ -24,6 +27,25 @@ export const English = {
   form_message_submitting: 'Submitting…',
   form_message_submitted: 'Submission received',
   form_message_failed: 'An error occurred sending, please retry',
+  std_save_the_date: 'Save the date',
+  std_the_wedding_of: 'For the wedding of',
+  std_form_message_submitted: (
+    <>
+      Submission received. Find all information on the{' '}
+      <Link to="/">home page</Link>
+    </>
+  ),
+  std_paragraphs: [
+    <>
+      We are very pleased to welcome you in{' '}
+      <q>
+        <a href="https://lacavedesanges.fr">La Cave des Anges</a>
+      </q>{' '}
+      in sunny Carcassonne.
+    </>,
+    'Please confirm your availability and any food restrictions in the following form:',
+  ],
+  full_date: '7 August 2021',
   switch_language: 'Verander naar Nederlands',
 };
 
@@ -57,6 +79,25 @@ export const Dutch = {
   form_message_submitting: 'Aan het verzenden…',
   form_message_submitted: 'Bericht ontvangen',
   form_message_failed: 'Er was een probleem bij het verzenden, probeer opnieuw',
+  std_save_the_date: 'Hou de datum vrij',
+  std_the_wedding_of: 'voor het huwelijk van',
+  std_form_message_submitted: (
+    <>
+      Bericht ontvangen! Vind alle praktische informatie op de{' '}
+      <Link to="/">hoofdpagina</Link>
+    </>
+  ),
+  std_paragraphs: [
+    <>
+      We zijn zeer blij om jullie in{' '}
+      <q>
+        <a href="https://lacavedesanges.fr">La Cave des Anges</a>
+      </q>
+      , Carcassonne uit te nodigen.
+    </>,
+    'Laat ons weten of je er kan zijn, en of je bepaalde restricties hebt in het formulier:',
+  ],
+  full_date: '7 augustus 2021',
   switch_language: 'Switch to English',
 };
 

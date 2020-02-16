@@ -9,3 +9,11 @@ declare module 'object.fromentries' {
 }
 
 declare module 'http-proxy-middleware';
+
+import * as CSS from 'csstype';
+
+declare module 'csstype' {
+  export interface Properties {
+    '--columns'?: number;
+  }
+}

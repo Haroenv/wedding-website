@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import image from './us-two.jpg';
+import image from './carcassonne-tile.jpg';
 import * as Translations from './translations';
-// @ts-ignore
 import 'unfetch/polyfill';
 
 /**
@@ -15,7 +14,6 @@ import 'unfetch/polyfill';
 /**
  * @param {GetText} getText
  * @param {FormState} formState
- * @returns string
  */
 const getFormStateText = (getText, formState) => {
   switch (formState) {
@@ -26,7 +24,7 @@ const getFormStateText = (getText, formState) => {
       return getText('form_message_submitting');
     }
     case 'submitted': {
-      return getText('form_message_submitted');
+      return getText('std_form_message_submitted');
     }
     case 'failed': {
       return getText('form_message_failed');
@@ -75,7 +73,7 @@ const Form = ({ name, number, getText }) => {
         setFormState('submitting');
         fetch(url.href, {
           method: 'POST',
-          body: JSON.stringify([...data.entries()]),
+          body: JSON.stringify([...data.entries(), ['baseId', 'RSVP 2']]),
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
@@ -178,7 +176,9 @@ const Form = ({ name, number, getText }) => {
       </fieldset>
 
       <div className="input-group">
-        {formState === 'clean' ? null : getFormStateText(getText, formState)}
+        {formState === 'clean' ? null : (
+          <p>{getFormStateText(getText, formState)}</p>
+        )}
         <input
           type="submit"
           // prettier-ignore
@@ -196,7 +196,7 @@ const Form = ({ name, number, getText }) => {
  *  defaultLanguage: import('./translations').Language}
  * >}
  */
-const Rsvp = ({ name, number, defaultLanguage }) => {
+const SaveTheDate = ({ name, number, defaultLanguage }) => {
   const [language, setLanguage] = useState(defaultLanguage);
   /**
    * @param {import('./translations').TranslationKey} key
@@ -215,9 +215,10 @@ const Rsvp = ({ name, number, defaultLanguage }) => {
       <button className="language" onClick={toggleLanguage}>
         {getText('switch_language')}
       </button>
-      <h1 className="futura">{getText('you_are_invited')}</h1>
+      <h1 className="futura">{getText('std_save_the_date')}</h1>
       <p className="script subtitle">{name}</p>
-      <p className="futura">{getText('the_wedding_of')}</p>
+      <p className="futura">{getText('full_date')}</p>
+      <p className="futura">{getText('std_the_wedding_of')}</p>
       <p className="subtitle script">{getText('abi_and_haroen')}</p>
       <img
         src={image}
@@ -225,11 +226,9 @@ const Rsvp = ({ name, number, defaultLanguage }) => {
         alt={/** @type string */(getText('image_alt'))}
         className="border"
       />
-      <p className="futura">{getText('timing')}</p>
-      <p className="futura medium">2021</p>
       <hr className="flourish" />
       {// prettier-ignore
-      /**@type string[] */ (getText('paragraphs')).map((paragraph, i) => (
+      /**@type string[] */ (getText('std_paragraphs')).map((paragraph, i) => (
         <p key={i}>{paragraph}</p>
       ))}
       <Form name={name} number={number} getText={getText} />
@@ -246,6 +245,7 @@ const errorMailto = new URL(`mailto:${emailAddress}?subject=${errorSubject}`);
  *   name: string;
  *   number: number;
  *   language: string[];
+ *   comments?: string;
  * }} Data
  */
 
@@ -290,7 +290,7 @@ const InfoWrapper = () => {
   const defaultLanguage =
     (data.language || []).indexOf('Dutch') > -1 ? 'nl' : 'en';
   return (
-    <Rsvp
+    <SaveTheDate
       name={data.name}
       number={data.number}
       defaultLanguage={defaultLanguage}

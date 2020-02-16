@@ -14,7 +14,7 @@ html,
 body,
 #root,
 #reach-root {
-  height: 100%;
+  min-height: 100%;
 }
 
 .vertical-center {
@@ -76,8 +76,16 @@ hr.flourish:after {
   font-size: 2em;
 }
 
+.medium-small {
+  font-size: 1.5em;
+}
+
 .script {
   font-family: 'Parisienne', 'Vladimir Script', cursive;
+}
+
+img {
+  max-width: 100%;
 }
 
 .border {
@@ -164,4 +172,29 @@ p {
     left: 1em;
     top: 2em;
   }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns, 2), minmax(300px, 1fr));
+  grid-gap: 2em;
+}
+
+/*
+ * 700 is approx 2 (our columns variable) * 300px + margin + gap, I feel really stupid doing this,
+ * I really just want to say: 2 columns, only when it fits, otherwise 1 only
+ * not auto-fill, since that does more than two columns
+ */
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
+  }
+}
+
+.margin-v-large {
+  margin: 2em auto;
+}
+
+.darkmode {
+  filter: grayscale(1) invert();
 }
