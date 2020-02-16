@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import { getMailTo } from './util';
 
 export const English = {
   you_are_invited: 'You are invited',
   the_wedding_of: 'to the wedding of',
   abi_and_haroen: 'Abi & Haroen',
   image_alt: 'us together, looking amazing',
+  std_image_alt: 'a Carcassonne tile in Carcassonne',
   timing: 'Early August',
   paragraphs: [
     "Of course it's still too early now to decide on an exact date or venue, but we would love to have you attend! We know it will be around the beginning of August 2021, and somewhere in France so all of you will have to travel a bit.",
@@ -46,6 +48,46 @@ export const English = {
     'Please confirm your availability and any food restrictions in the following form:',
   ],
   full_date: '7 August 2021',
+  home_getting_married: 'are getting married',
+  home_location: 'in La Cave des Anges, Carcassonne',
+  home_getting_there: (
+    <>
+      <h2>Getting there</h2>
+      <p>Carcassonne is reachable by airplane, train or via road.</p>
+      <hr className="flourish" />
+      <p>The venue is a 5 minute drive from the city centre.</p>
+      <p>
+        Unfortunately, it's not possible to walk to the venue. We therefore
+        suggest you take a taxi, or drive, since there's parking at the venue.
+      </p>
+      <hr className="flourish" />
+      <p>The address of the venue is:</p>
+      <address>
+        La Cave des Anges,
+        <br />
+        Domaine de Maran,
+        <br />
+        11570 Cavanac
+      </address>
+      <p>
+        Note: it's possible that a GPS or Google Maps will send you to the wrong
+        place, please make sure you check with the location on{' '}
+        <a href="https://lacavedesanges.fr">the venue's site</a>.
+      </p>
+    </>
+  ),
+  home_practical: (
+    <>
+      <h2>Practical information</h2>
+      <p>Welcoming everyone from 11.30 AM.</p>
+      <p>No strict curfew, party all night!</p>
+      <p>
+        More info to come, but don't hesitate to{' '}
+        <a href={getMailTo('I have a practical question')}>reach out</a> if you
+        have any questions.
+      </p>
+    </>
+  ),
   switch_language: 'Verander naar Nederlands',
 };
 
@@ -57,6 +99,7 @@ export const Dutch = {
   the_wedding_of: 'voor het huwelijk van',
   abi_and_haroen: 'Abi & Haroen',
   image_alt: 'ons samen, die er super uit zien',
+  std_image_alt: 'een tegel van Carcassonne, in Carcassonne',
   timing: 'Begin augustus',
   paragraphs: [
     'Natuurlijk is het nog veel te vroeg om de exacte data en plaats te beslissen, maar we zouden het super vinden als jullie komen! We hebben beslist dat we zullen trouwen rond het begin van Augustus 2021, en dat het ergens in Frankrijk zal zijn zodat iedereen een beetje moet reizen.',
@@ -98,6 +141,53 @@ export const Dutch = {
     'Laat ons weten of je er kan zijn, en of je bepaalde restricties hebt in het formulier:',
   ],
   full_date: '7 augustus 2021',
+  home_getting_married: 'gaan trouwen',
+  home_location: 'in La Cave des Anges, Carcassonne',
+  home_getting_there: (
+    <>
+      <h2>Vervoer</h2>
+      <p>Carcassonne is berijkbaar via trein, auto, of zelfs vliegtuig.</p>
+      <hr className="flourish" />
+      <p>Onze locatie is ca. 5km van de stadskern.</p>
+      <p>
+        Jammer is het niet mogelijk is om te voet naar de locatie te komen. We
+        stellen jullie daarvoor om een taxi te regelen, of met de auto,
+        aangezien er parking is.
+      </p>
+      <hr className="flourish" />
+      <p>Het adres is:</p>
+      <address>
+        La Cave des Anges,
+        <br />
+        Domaine de Maran,
+        <br />
+        11570 Cavanac
+      </address>
+      <p>
+        Let op: het is mogelijk dat je GPS of Google Maps niet de exact juiste
+        plaats heeft. Controleer op de{' '}
+        <a href="https://lacavedesanges.fr">locatie's website</a> om zeker te
+        zijn.
+      </p>
+    </>
+  ),
+  home_practical: (
+    <>
+      <h2>Praktische informatie</h2>
+      <p>We verwelkomen iedereen vanaf 11u30.</p>
+      <p>
+        Er is geen strikt einduur, dus we kunnen de hele nacht door feesten!
+      </p>
+      <p>
+        We zullen meer informatie informatie geven eens de datum dichterbij is,
+        maar twijfel niet om{' '}
+        <a href={getMailTo('Ik heb een praktische vraag')}>
+          ons te contacteren
+        </a>{' '}
+        als je vragen hebt.
+      </p>
+    </>
+  ),
   switch_language: 'Switch to English',
 };
 

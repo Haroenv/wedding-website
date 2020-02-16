@@ -73,7 +73,7 @@ hr.flourish:after {
 }
 
 .medium {
-  font-size: 2em;
+  font-size: 1.9em;
 }
 
 .medium-small {
@@ -198,4 +198,8 @@ p {
 
 .darkmode {
   filter: grayscale(1) invert();
+}
+
+address {
+  font-style: normal;
 }

@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
 import * as Translations from './translations';
 import image from './us-two.jpg';
+import { getMailTo, emailAddress } from './util';
 
 /**
  * @returns {"en" | "nl"}
  */
 function getDefaultLanguage() {
   return 'en';
-}
-
-const emailAddress = 'help@abi-and-haroen.fr';
-/**
- * @param {string} subject
- */
-function getMailTo(subject) {
-  const url = new URL(`mailto:${emailAddress}?subject=${subject}`);
-  return url.toString();
 }
 
 /**
@@ -65,10 +57,12 @@ const Home = () => {
       <button className="language" onClick={toggleLanguage}>
         {getText('switch_language')}
       </button>
-      <p className="script subtitle">Abi & Haroen</p>
-      <p className="medium-small">are getting married</p>
-      <p className="futura medium">7 august 2021</p>
-      <p>in La Cave des Anges, Carcassonne</p>
+      <p className="script subtitle" style={{ marginTop: '1em' }}>
+        {getText('abi_and_haroen')}
+      </p>
+      <p className="medium-small">{getText('home_getting_married')}</p>
+      <p className="futura medium">{getText('full_date')}</p>
+      <p>{getText('home_location')}</p>
       <hr className="flourish margin-v-large" />
       <div className="grid" style={{ '--columns': 2 }}>
         <GoogleMaps
@@ -77,44 +71,14 @@ const Home = () => {
           center={[43.2, 2.33]}
           zoom={13}
         />
-        <img src={image} alt="us having fun" />
+        <img
+          src={image}
+          // prettier-ignore
+          alt={/** @type string */ (getText('image_alt'))}
+        />
 
-        <section>
-          <h2>Getting there</h2>
-          <p>Carcassonne is reachable by airplane, train or via road.</p>
-          <hr className="flourish" />
-          <p>The venue is a 5 minute drive from the city centre.</p>
-          <p>
-            Unfortunately, it's not possible to walk to the venue, we therefore
-            suggest you take a taxi, or drive, since there's parking at the
-            venue.
-          </p>
-          <hr className="flourish" />
-          <p>The address of the venue is:</p>
-          <address>
-            La Cave des Anges,
-            <br />
-            Domaine de Maran,
-            <br />
-            11570 Cavanac
-          </address>
-          <p>
-            Note: it's possible that a GPS or Google Maps will send you to the
-            wrong place, please make sure you check with the location on{' '}
-            <a href="https://lacavedesanges.fr">the venue's site</a>.
-          </p>
-          <p></p>
-        </section>
-        <section>
-          <h2>Practical information</h2>
-          <p>Welcoming everyone from 11.30 AM.</p>
-          <p>No strict curfew, party all night!</p>
-          <p>
-            More info to come, but don't hesitate to{' '}
-            <a href={getMailTo('I have a practical question')}>reach out</a> if
-            you have any questions.
-          </p>
-        </section>
+        <section>{getText('home_getting_there')}</section>
+        <section>{getText('home_practical')}</section>
       </div>
       <footer>
         <p>
