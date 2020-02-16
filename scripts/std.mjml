@@ -17,7 +17,7 @@
         <mj-text mj-class="font-futura">{{std_the_wedding_of}}</mj-text>
         <mj-text mj-class="font-parisienne">{{abi_and_haroen}}</mj-text>
         <mj-text mj-class="font-futura">{{full_date}}</mj-text>
-        <mj-button mj-class="font-futura" color="white" background-color="black" border="1px solid white" border-radius="0" href="https://abi-and-haroen.fr/rsvp?id={{user_id}}">
+        <mj-button mj-class="font-futura" color="white" background-color="black" border="1px solid white" border-radius="0" href="https://abi-and-haroen.fr/save-the-date?id={{user_id}}">
           {{cta_email}}
         </mj-button>
       </mj-column>

@@ -31,6 +31,8 @@ export const English = {
   form_message_failed: 'An error occurred sending, please retry',
   std_save_the_date: 'Save the date',
   std_the_wedding_of: 'For the wedding of',
+  full_date: '7 August 2021',
+
   std_form_message_submitted: (
     <>
       Submission received. Find all information on the{' '}
@@ -47,7 +49,6 @@ export const English = {
     </>,
     'Please confirm your availability and any food restrictions in the following form:',
   ],
-  full_date: '7 August 2021',
   home_getting_married: 'are getting married',
   home_location: 'in La Cave des Anges, Carcassonne',
   home_getting_there: (
@@ -124,6 +125,8 @@ export const Dutch = {
   form_message_failed: 'Er was een probleem bij het verzenden, probeer opnieuw',
   std_save_the_date: 'Hou de datum vrij',
   std_the_wedding_of: 'voor het huwelijk van',
+  full_date: '7 augustus 2021',
+
   std_form_message_submitted: (
     <>
       Bericht ontvangen! Vind alle praktische informatie op de{' '}
@@ -140,7 +143,6 @@ export const Dutch = {
     </>,
     'Laat ons weten of je er kan zijn, en of je bepaalde restricties hebt in het formulier:',
   ],
-  full_date: '7 augustus 2021',
   home_getting_married: 'gaan trouwen',
   home_location: 'in La Cave des Anges, Carcassonne',
   home_getting_there: (
