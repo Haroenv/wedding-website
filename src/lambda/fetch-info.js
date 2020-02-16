@@ -11,6 +11,22 @@ if (AIRTABLE_API_KEY === '' || AIRTABLE_BASE === '') {
 }
 
 /**
+ * get info from airtable, but give empty if base doesn't exist
+ * @param {Airtable.Base} base
+ * @param {string[]} RSVP
+ */
+function getFallbackInfo(base, RSVP = []) {
+  return (
+    base('RSVP')
+      // @ts-ignore .find isn't typed
+      .find(RSVP[0])
+      .catch(() => ({
+        fields: {},
+      }))
+  );
+}
+
+/**
  * @param {import('aws-lambda').APIGatewayEvent} event
  * @param {import('aws-lambda').Context} context
  */
@@ -26,8 +42,7 @@ export async function handler(event, context) {
 
     const {
       fields: { names: correctName, number_guests: correctNumber, comments },
-      // @ts-ignore .find isn't typed
-    } = await base('RSVP').find(RSVP[0]);
+    } = await getFallbackInfo(base, RSVP);
 
     return {
       statusCode: 200,
