@@ -52,7 +52,7 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 const tokenRegex = /{{\s*(.*)\s*}}/g;
 
 async function main() {
-  const template = await readFile(getAdjacentFile('invite.mjml'), 'utf-8');
+  const template = await readFile(getAdjacentFile('std.mjml'), 'utf-8');
   const templateTxtEn = await readFile(
     getAdjacentFile('invite-en.txt'),
     'utf-8'
@@ -71,7 +71,7 @@ async function main() {
   // prettier-ignore
   // @ts-ignore
   const rsvpBase = /** @type Airtable.Table<{invitation:string[]}> */(await base(
-    'RSVP'
+    'RSVP 2'
   ));
 
   const rsvps = await rsvpBase.select().all();
