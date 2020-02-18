@@ -177,18 +177,13 @@ p {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(var(--columns, 2), minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-gap: 2em;
 }
 
-/*
- * 640 is approx 2 (our columns variable) * 280px + margin + gap, I feel really stupid doing this,
- * I really just want to say: 2 columns, only when it fits, otherwise 1 only
- * not auto-fill, since that does more than two columns
- */
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .grid {
-    grid-template-columns: repeat(1, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
 

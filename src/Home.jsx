@@ -51,7 +51,7 @@ const Home = () => {
       <p className="futura medium">{getText('full_date')}</p>
       <p>{getText('home_location')}</p>
       <hr className="flourish margin-v-large" />
-      <div className="grid" style={{ '--columns': 2 }}>
+      <div className="grid">
         <GoogleMaps
           apiKey="AIzaSyCkc96KA1VumP4C1BrPVCxVtaSJrPJ09Ns"
           placeId="ChIJLZzH3hEtrhIRteQDxd_URV4"
