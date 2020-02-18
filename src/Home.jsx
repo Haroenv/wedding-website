@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
-import * as Translations from './translations';
+import React from 'react';
 import image from './us-two.jpg';
 import { getMailTo, emailAddress } from './util';
-
-/**
- * @returns {"en" | "nl"}
- */
-function getDefaultLanguage() {
-  return 'en';
-}
+import { useLanguage } from './useLanguage';
 
 /**
  * @type React.FunctionComponent<{
@@ -16,9 +9,10 @@ function getDefaultLanguage() {
  *   placeId: string;
  *   center: [number, number];
  *   zoom: number; // 1 - 21
+ *   language: import('./translations').Language
  * }>
  */
-const GoogleMaps = ({ apiKey, placeId, center, zoom }) => {
+const GoogleMaps = ({ apiKey, placeId, center, zoom, language }) => {
   return (
     <div className="darkmode">
       <iframe
@@ -33,7 +27,7 @@ const GoogleMaps = ({ apiKey, placeId, center, zoom }) => {
         }}
         src={`https://www.google.com/maps/embed/v1/place?q=place_id:${placeId}&key=${apiKey}&center=${center.join(
           ','
-        )}&zoom=${zoom}`}
+        )}&zoom=${zoom}&language=${language}`}
       />
     </div>
   );
@@ -43,14 +37,7 @@ const GoogleMaps = ({ apiKey, placeId, center, zoom }) => {
  * @type React.FunctionComponent<import('@reach/router').RouteComponentProps>
  */
 const Home = () => {
-  const [language, setLanguage] = useState(getDefaultLanguage());
-  /**
-   * @param {import('./translations').TranslationKey} key
-   */
-  const getText = key => Translations.getTranslation(language, key);
-
-  const toggleLanguage = () =>
-    language === 'en' ? setLanguage('nl') : setLanguage('en');
+  const { getText, toggleLanguage, language } = useLanguage('nl');
 
   return (
     <>
@@ -70,6 +57,7 @@ const Home = () => {
           placeId="ChIJLZzH3hEtrhIRteQDxd_URV4"
           center={[43.2, 2.33]}
           zoom={13}
+          language={language}
         />
         <img
           src={image}

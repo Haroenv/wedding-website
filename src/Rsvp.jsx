@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import image from './us-two.jpg';
-import * as Translations from './translations';
 // @ts-ignore
 import 'unfetch/polyfill';
-
-/**
- * @typedef {(key: Translations.TranslationKey) => (typeof Translations.Dutch)[Translations.TranslationKey]} GetText
- */
+import { useLanguage } from './useLanguage';
 
 /**
  * @typedef {'clean' | 'submitting' | 'submitted' | 'failed'} FormState
  */
 
 /**
- * @param {GetText} getText
+ * @param {import('./useLanguage').GetText} getText
  * @param {FormState} formState
  * @returns string
  */
@@ -38,7 +34,7 @@ const getFormStateText = (getText, formState) => {
 };
 
 /**
- * @type {React.FunctionComponent<{name: string; number: number; getText: GetText}>}
+ * @type {React.FunctionComponent<{name: string; number: number; getText: import('./useLanguage').GetText}>}
  */
 const Form = ({ name, number, getText }) => {
   // prettier-ignore
@@ -197,18 +193,7 @@ const Form = ({ name, number, getText }) => {
  * >}
  */
 const Rsvp = ({ name, number, defaultLanguage }) => {
-  const [language, setLanguage] = useState(defaultLanguage);
-  /**
-   * @param {import('./translations').TranslationKey} key
-   */
-  const getText = key => Translations.getTranslation(language, key);
-
-  useEffect(() => {
-    document.documentElement.lang = language;
-  }, [language]);
-
-  const toggleLanguage = () =>
-    language === 'en' ? setLanguage('nl') : setLanguage('en');
+  const { getText, toggleLanguage } = useLanguage(defaultLanguage);
 
   return (
     <>
