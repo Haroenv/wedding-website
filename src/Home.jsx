@@ -37,7 +37,7 @@ const GoogleMaps = ({ apiKey, placeId, center, zoom, language }) => {
  * @type React.FunctionComponent<import('@reach/router').RouteComponentProps>
  */
 const Home = () => {
-  const { getText, toggleLanguage, language } = useLanguage('nl');
+  const { getText, toggleLanguage, language } = useLanguage('en');
 
   return (
     <>
