@@ -49,7 +49,16 @@ export const English = {
     </>,
     'Please confirm your availability and any food restrictions in the following form:',
   ],
-  home_getting_married: 'are getting married',
+  home_getting_married: 'are (not yet) getting married',
+  home_postponed: (
+    <>
+      <p>
+        We have decided to postpone our wedding until it's safe for everyone to
+        travel.
+      </p>
+      <p>We will keep you updated when we reschedule!</p>
+    </>
+  ),
   home_location: 'in La Cave des Anges, Carcassonne',
   home_getting_there: (
     <>
@@ -80,8 +89,8 @@ export const English = {
   home_practical: (
     <>
       <h2>Practical information</h2>
-      <p>Welcoming everyone from 11.30 AM.</p>
-      <p>No strict curfew, party all night!</p>
+      <p>We have decided to postpone for now.</p>
+      <p>We want everyone to stay safe!</p>
       <p>
         More info to come, but don't hesitate to{' '}
         <a href={getMailTo('I have a practical question')}>reach out</a> if you
@@ -143,7 +152,16 @@ export const Dutch = {
     </>,
     'Laat ons weten of je er kan zijn, en of je bepaalde restricties hebt in het formulier:',
   ],
-  home_getting_married: 'gaan trouwen',
+  home_getting_married: 'gaan (nog niet) trouwen',
+  home_postponed: (
+    <>
+      <p>
+        We hebben beslist om onze trouw uit te stellen tot het veilig is voor
+        iedereen om te reizen.
+      </p>
+      <p>We houden jullie op de hoogte wanneer we herplannen!</p>
+    </>
+  ),
   home_location: 'in La Cave des Anges, Carcassonne',
   home_getting_there: (
     <>
@@ -176,10 +194,8 @@ export const Dutch = {
   home_practical: (
     <>
       <h2>Praktische informatie</h2>
-      <p>We verwelkomen iedereen vanaf 11u30.</p>
-      <p>
-        Er is geen strikt einduur, dus we kunnen de hele nacht door feesten!
-      </p>
+      <p>We hebben beslist om ons trouwfeest uit te stellen.</p>
+      <p>We hopen dat iedereen veilig blijft!</p>
       <p>
         We zullen meer informatie informatie geven eens de datum dichterbij is,
         maar twijfel niet om{' '}
