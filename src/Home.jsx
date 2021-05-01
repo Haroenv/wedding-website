@@ -48,12 +48,8 @@ const Home = () => {
         {getText('abi_and_haroen')}
       </p>
       <p className="medium-small">{getText('home_getting_married')}</p>
-      <p className="futura medium">
-        <s>{getText('full_date')}</s>
-      </p>
+      <p className="futura medium">{getText('full_date')}</p>
       <p>{getText('home_location')}</p>
-      <hr className="flourish margin-v-large" />
-      {getText('home_postponed')}
       <hr className="flourish margin-v-large" />
       <div className="grid">
         <GoogleMaps
