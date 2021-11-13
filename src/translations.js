@@ -193,6 +193,7 @@ export const Dutch = {
   ),
   home_practical: (
     <>
+      <h2>Praktische informatie</h2>
       <p>We verwelkomen iedereen vanaf 11u30.</p>
       <p>
         Er is geen strikt einduur, dus we kunnen de hele nacht door feesten!
