@@ -41,13 +41,13 @@ export async function handler(event, context) {
     } = await base('Invitations').find(id);
 
     const {
-      fields: { names: correctName, number_guests: correctNumber, comments },
+      fields: { number_guests: correctNumber, comments },
     } = await getFallbackInfo(base, RSVP);
 
     return {
       statusCode: 200,
       body: JSON.stringify({
-        name: correctName || name,
+        name: name,
         number: correctNumber || number,
         comments,
         language,
