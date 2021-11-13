@@ -2,7 +2,6 @@
   "name": "wedding-website",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "dependencies": {
     "@reach/router": "^1.2.1",
     "@sendgrid/mail": "^6.4.0",
