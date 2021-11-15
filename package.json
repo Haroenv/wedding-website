@@ -6,7 +6,7 @@
     "@reach/router": "^1.2.1",
     "@sendgrid/mail": "^6.4.0",
     "@types/airtable": "^0.5.2",
-    "airtable": "^0.6.0",
+    "airtable": "^0.7.2",
     "dotenv": "^8.0.0",
     "mjml": "^4.4.0",
     "object.fromentries": "^2.0.0",
