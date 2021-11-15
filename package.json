@@ -23,7 +23,7 @@
     "build:app": "react-scripts build",
     "build:lambda": "netlify-lambda build src/lambda",
     "test": "react-scripts test",
-    "emails": "./scripts/email.js"
+    "emails": "./scripts/email.mjs"
   },
   "eslintConfig": {
     "extends": "react-app"

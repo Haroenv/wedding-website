@@ -33,6 +33,11 @@ export const English = {
   std_the_wedding_of: 'For the wedding of',
   full_date: '30 July 2022',
 
+  mail_preamble: 'We hope to see you next year at our wedding in Carcassonne.',
+  mail_body:
+    'Please let us know if you can make it, along with any special requests you may have.',
+  mail_more_info: 'more information available on <a href="https://abi-and-haroen.fr">our site</a>',
+
   std_form_message_submitted: (
     <>
       Submission received. Find all information on the{' '}
@@ -135,6 +140,12 @@ export const Dutch = {
   std_save_the_date: 'Hou de datum vrij',
   std_the_wedding_of: 'voor het huwelijk van',
   full_date: '30 juli 2022',
+
+  mail_preamble:
+    'We hopen jullie volgend jaar op onze trouw in Carcassonne te zien.',
+  mail_body:
+    'Laat ons weten of je erbij kan zijn, en of je speciale verzoeken hebt.',
+  mail_more_info: 'meer info op <a href="https://abi-and-haroen.fr">onze site</a>',
 
   std_form_message_submitted: (
     <>

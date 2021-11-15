@@ -5,7 +5,7 @@ import mjml from 'mjml';
 import dotenv from 'dotenv';
 import Airtable from 'airtable';
 import sgMail from '@sendgrid/mail';
-import { getTranslation } from '../src/translations.js';
+import { getTranslation } from '../src/translations.mjs';
 const { readFile } = fs;
 dotenv.config();
 
@@ -29,7 +29,7 @@ if (
  * get the URL of an adjacent file to the current file using import.meta
  * @param {string} name
  */
-const getAdjacentFile = name => {
+const getAdjacentFile = (name) => {
   const base = import.meta.url;
   const file = new URL(base);
   const pathname = file.pathname.split('/');
@@ -52,7 +52,7 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 const tokenRegex = /{{\s*(.*)\s*}}/g;
 
 async function main() {
-  const template = await readFile(getAdjacentFile('std.mjml'), 'utf-8');
+  const template = await readFile(getAdjacentFile('rsvp.mjml'), 'utf-8');
   const templateTxtEn = await readFile(
     getAdjacentFile('invite-en.txt'),
     'utf-8'
@@ -71,12 +71,12 @@ async function main() {
   // prettier-ignore
   // @ts-ignore
   const rsvpBase = /** @type Airtable.Table<{invitation:string[]}> */(await base(
-    'RSVP 2'
+    'RSVP 3'
   ));
 
   const rsvps = await rsvpBase.select().all();
 
-  const alreadyInvited = rsvps.flatMap(r => r.fields.invitation);
+  const alreadyInvited = rsvps.flatMap((r) => r.fields.invitation);
 
   const invitees = await invitations.select().all();
 
@@ -84,7 +84,7 @@ async function main() {
     .filter(({ id }) => {
       return alreadyInvited.indexOf(id) === -1;
     })
-    .map(invitee => {
+    .map((invitee) => {
       const { fields, id } = invitee;
 
       const { name, email = 'help@abi-and-haroen.fr' } = fields;
@@ -133,6 +133,13 @@ async function main() {
         html,
       };
     });
+
+  await sgMail.send(
+    emails.filter(
+      (email) => email.to.name === 'Mumtaaz' || email.to.name === 'Eva'
+    ),
+    true
+  );
 
   // await sgMail.send(emails, true);
 }

@@ -1,10 +1,10 @@
 Dag {{name}}!
 
-Je bent uitgenodigd voor de trouw van Haroen & Abi, 7 augustus 2021!
+Je bent uitgenodigd voor de trouw van Haroen & Abi, 30 juli 2022!
 
 We hebben een klein formulier gemaakt om te bevestigen. Je kan dat hier vinden:
 
-https://abi-and-haroen.fr/save-the-date?id={{user_id}}
+https://abi-and-haroen.fr/rsvp?id={{user_id}}
 
 Hopelijk kan je er bij zijn!
 

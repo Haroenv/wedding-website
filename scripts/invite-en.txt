@@ -1,10 +1,10 @@
 Hi {{name}}!
 
-You are invited for the marriage of Abi & Haroen, 7 August 2021!
+You are invited for the marriage of Abi & Haroen, 30 July 2022!
 
 We have made a small form so you can confirm us. You can find that here:
 
-https://abi-and-haroen.fr/save-the-date?id={{user_id}}
+https://abi-and-haroen.fr/rsvp?id={{user_id}}
 
 Hope you can make it!
 
