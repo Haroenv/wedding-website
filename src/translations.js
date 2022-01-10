@@ -14,7 +14,7 @@ export const English = {
     'Please use the comments below to let us know anything you need. We will send you another real invite once details have been confirmed.',
     'If you have any questions, feel free to reach out to us!',
   ],
-  cta_email: 'Tell us your answer here',
+  cta_email: '👉 RSVP on this site 👈',
   email_subject: "You are invited to Abi & Haroen's wedding!",
   form_names: 'Names',
   form_number_guests: 'Number of guests',
@@ -35,8 +35,8 @@ export const English = {
 
   mail_preamble: 'We hope to see you next year at our wedding in Carcassonne.',
   mail_body:
-    'Please let us know if you can make it, along with any special requests you may have.',
-  mail_more_info: 'more information available on <a href="https://abi-and-haroen.fr">our site</a>',
+    'To let us know if you can make it, please fill in the following form:',
+  mail_more_info: 'more information available on <a href="https://abi-and-haroen.fr">our site</a>. If you have any trouble with the previous link — go enter the following in your browser:',
 
   std_form_message_submitted: (
     <>
@@ -122,7 +122,7 @@ export const Dutch = {
     'We sturen een een bevestiging wanneer we alles vastzetten om jullie op de hoogte te houden.',
     'Als je vragen hebt, twijfel niet om ons te contacteren.',
   ],
-  cta_email: 'Laat ons je antwoord hier weten',
+  cta_email: '👉 Vul het formulier in hier 👈',
   email_subject: 'Je bent uitgenodigd voor de trouw van Haroen & Abi!',
   form_number_guests: 'Aantal gasten',
   form_names: 'Namen',
@@ -144,8 +144,8 @@ export const Dutch = {
   mail_preamble:
     'We hopen jullie volgend jaar op onze trouw in Carcassonne te zien.',
   mail_body:
-    'Laat ons weten of je erbij kan zijn, en of je speciale verzoeken hebt.',
-  mail_more_info: 'meer info op <a href="https://abi-and-haroen.fr">onze site</a>',
+    'Laat ons weten via het volgende formulier of je erbij kan zijn:',
+  mail_more_info: 'meer info op <a href="https://abi-and-haroen.fr">onze site</a>. Als de link niet werkt, kopieer het volgende in je browser:',
 
   std_form_message_submitted: (
     <>

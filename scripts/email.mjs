@@ -134,12 +134,7 @@ async function main() {
       };
     });
 
-  await sgMail.send(
-    emails.filter(
-      (email) => email.to.name === 'Mumtaaz' || email.to.name === 'Eva'
-    ),
-    true
-  );
+  console.log(emails);
 
   // await sgMail.send(emails, true);
 }
