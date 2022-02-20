@@ -32,9 +32,9 @@ export const English = {
   std_the_wedding_of: 'For the wedding of',
   full_date: '30 July 2022',
 
-  mail_preamble: 'We hope to see you next year at our wedding in Carcassonne.',
+  mail_preamble: 'We hope to see you at our wedding in Carcassonne.',
   mail_body:
-    'To let us know if you can make it, please fill in the following form:',
+    'Please let us know if you can make it by filling in the following form:',
   mail_more_info:
     'more information available on <a href="https://abi-and-haroen.fr">our site</a>. If you have any trouble with the previous link — go enter the following in your browser:',
   switch_language: 'Verander naar Nederlands',
@@ -78,7 +78,7 @@ export const Dutch = {
   full_date: '30 juli 2022',
 
   mail_preamble:
-    'We hopen jullie volgend jaar op onze trouw in Carcassonne te zien.',
+    'We hopen jullie op onze trouw in Carcassonne te zien!',
   mail_body: 'Laat ons weten via het volgende formulier of je erbij kan zijn:',
   mail_more_info:
     'meer info op <a href="https://abi-and-haroen.fr">onze site</a>. Als de link niet werkt, kopieer het volgende in je browser:',
