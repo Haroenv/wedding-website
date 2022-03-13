@@ -17,7 +17,7 @@ if (AIRTABLE_API_KEY === '' || AIRTABLE_BASE === '') {
  */
 function getFallbackInfo(base, RSVP = []) {
   return (
-    base('RSVP')
+    base('Invitations')
       // @ts-ignore .find isn't typed
       .find(RSVP[0])
       .catch(() => ({
@@ -36,20 +36,35 @@ export async function handler(event, context) {
     const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(AIRTABLE_BASE);
 
     const {
-      fields: { name, guests, language, RSVP },
+      fields: {
+        name,
+        guests,
+        language,
+        RSVP,
+        'RSVP 2': RSVP2,
+        'RSVP 3': RSVP3,
+      },
       // @ts-ignore .find isn't typed
     } = await base('Invitations').find(id);
 
     const {
-      fields: { number_guests, comments },
+      fields: { number_guests: guests_1, comments: comments_1 },
     } = await getFallbackInfo(base, RSVP);
+
+    const {
+      fields: { number_guests: guests_2, comments: comments_2 },
+    } = await getFallbackInfo(base, RSVP2);
+
+    const {
+      fields: { number_guests: guests_3, comments: comments_3 },
+    } = await getFallbackInfo(base, RSVP3);
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         name: name,
-        number: number_guests || guests,
-        comments,
+        number: guests_3 || guests_2 || guests_1 || guests,
+        comments: comments_3 || comments_2 || comments_1,
         language,
       }),
     };
