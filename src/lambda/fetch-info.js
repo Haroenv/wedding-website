@@ -36,19 +36,19 @@ export async function handler(event, context) {
     const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base(AIRTABLE_BASE);
 
     const {
-      fields: { name, 'number of people': number, language, RSVP },
+      fields: { name, guests, language, RSVP },
       // @ts-ignore .find isn't typed
     } = await base('Invitations').find(id);
 
     const {
-      fields: { number_guests: correctNumber, comments },
+      fields: { number_guests, comments },
     } = await getFallbackInfo(base, RSVP);
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         name: name,
-        number: correctNumber || number,
+        number: number_guests || guests,
         comments,
         language,
       }),
