@@ -6,6 +6,7 @@ export const English = {
   the_wedding_of: 'to the wedding of',
   abi_and_haroen: 'Abi & Haroen',
   image_alt: 'us together, looking amazing',
+  home_next_image: 'next picture',
   std_image_alt: 'a Carcassonne tile in Carcassonne',
   timing: 'Early August',
   paragraphs: [
@@ -50,6 +51,7 @@ export const Dutch = {
   the_wedding_of: 'voor het huwelijk van',
   abi_and_haroen: 'Abi & Haroen',
   image_alt: 'ons samen, die er super uit zien',
+  home_next_image: 'volgende foto',
   std_image_alt: 'een tegel van Carcassonne, in Carcassonne',
   timing: 'Begin augustus',
   paragraphs: [

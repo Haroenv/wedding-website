@@ -43,6 +43,19 @@ button {
   border-radius: 0;
 }
 
+button {
+  cursor: pointer;
+}
+
+.invisible-button {
+  border: none;
+  padding: 0;
+}
+
+.invisible-button * {
+  display: block
+}
+
 textarea {
   resize: vertical;
 }

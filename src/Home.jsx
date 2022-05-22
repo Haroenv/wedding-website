@@ -1,5 +1,10 @@
-import React from 'react';
-import image from './us-two.jpg';
+import React, { useState } from 'react';
+import image1 from './images/boissy-saint-leger-1.jpg';
+import image2 from './images/boissy-saint-leger-2.jpg';
+import image3 from './images/boissy-saint-leger-3.jpg';
+import image4 from './images/boissy-saint-leger-4.jpg';
+import image5 from './images/boissy-saint-leger-5.jpg';
+import image6 from './images/boissy-saint-leger-6.jpg';
 import { getMailTo, emailAddress } from './util';
 import { useLanguage } from './useLanguage';
 
@@ -33,11 +38,16 @@ const GoogleMaps = ({ apiKey, placeId, center, zoom, language }) => {
   );
 };
 
+const images = [image1, image2, image3, image4, image5, image6];
+
 /**
  * @type React.FunctionComponent<import('@reach/router').RouteComponentProps>
  */
 const Home = () => {
   const { getText, toggleLanguage, language } = useLanguage('en');
+  const [index, setIndex] = useState(0);
+
+  const image = images[index];
 
   return (
     <>
@@ -59,11 +69,32 @@ const Home = () => {
           zoom={13}
           language={language}
         />
-        <img
-          src={image}
-          // prettier-ignore
-          alt={/** @type string */ (getText('image_alt'))}
-        />
+
+        <button
+          className="invisible-button"
+          type="button"
+          onClick={() => {
+            setIndex((index + 1) % images.length);
+          }}
+          style={{
+            position: 'relative',
+          }}
+        >
+          <img src={image} alt={/** @type string */ (getText('image_alt'))} />
+          <span
+            style={{
+              lineHeight: '1.1',
+              textDecoration: 'underline',
+              position: 'absolute',
+              bottom: 0,
+              right: 0,
+              background: 'black',
+              padding: '.2em .5em'
+            }}
+          >
+            {getText('home_next_image')}
+          </span>
+        </button>
 
         <section>{getText('home_getting_there')}</section>
         <section>{getText('home_practical')}</section>
