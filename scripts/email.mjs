@@ -134,7 +134,7 @@ async function main() {
       };
     });
 
-  console.log(emails);
+  console.log(emails.map(e => e.to));
 
   // await sgMail.send(emails, true);
 }
