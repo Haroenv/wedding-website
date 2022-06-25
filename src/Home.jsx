@@ -5,6 +5,7 @@ import image3 from './images/boissy-saint-leger-3.jpg';
 import image4 from './images/boissy-saint-leger-4.jpg';
 import image5 from './images/boissy-saint-leger-5.jpg';
 import image6 from './images/boissy-saint-leger-6.jpg';
+import planImage from './images/plan-cave-des-anges.png';
 import { getMailTo, emailAddress } from './util';
 import { useLanguage } from './useLanguage';
 
@@ -97,7 +98,10 @@ const Home = () => {
         </button>
 
         <section>{getText('home_getting_there')}</section>
-        <section>{getText('home_practical')}</section>
+        <section>
+          {getText('home_practical')}
+          <img src={planImage} alt="Plan of La Cave Des Anges" />
+        </section>
       </div>
       <footer>
         <p>
