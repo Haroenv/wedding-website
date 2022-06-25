@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import image from './carcassonne-tile.jpg';
+import image from './images/carcassonne-tile.jpg';
 import 'unfetch/polyfill';
 import { useLanguage } from './useLanguage';
 
@@ -41,7 +41,7 @@ const Form = ({ name, number, getText }) => {
   return (
     <form
       className="futura"
-      onSubmit={e => {
+      onSubmit={(e) => {
         e.preventDefault();
         // prettier-ignore
         const data = new FormData(/** @type HTMLFormElement */(e.target));
@@ -51,7 +51,7 @@ const Form = ({ name, number, getText }) => {
             return;
           }
           // @ts-ignore iterable == array
-          data.entries = function() {
+          data.entries = function () {
             return [
               // @ts-ignore these elements exist for sure
               ['names', document.querySelector('[name=names]').value],
@@ -75,18 +75,18 @@ const Form = ({ name, number, getText }) => {
             'Content-Type': 'application/json',
           },
         })
-          .then(res => {
+          .then((res) => {
             if (res.ok) {
               return res.json();
             } else {
               throw new Error('submission failed');
             }
           })
-          .then(res => {
+          .then((res) => {
             console.log(res);
             setFormState('submitted');
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
             setFormState('failed');
           });
@@ -192,7 +192,7 @@ const Form = ({ name, number, getText }) => {
  *  defaultLanguage: import('./translations').Language}
  * >}
  */
-const SaveTheDate = ({ name, number, defaultLanguage }) => {
+const Rsvp = ({ name, number, defaultLanguage }) => {
   const { getText, toggleLanguage } = useLanguage(defaultLanguage);
 
   return (
@@ -212,10 +212,7 @@ const SaveTheDate = ({ name, number, defaultLanguage }) => {
         className="border"
       />
       <hr className="flourish" />
-      {// prettier-ignore
-      /**@type string[] */ (getText('std_paragraphs')).map((paragraph, i) => (
-        <p key={i}>{paragraph}</p>
-      ))}
+      {getText('std_paragraphs')}
       <Form name={name} number={number} getText={getText} />
     </>
   );
@@ -247,16 +244,16 @@ const InfoWrapper = () => {
     const url = new URL(window.location.href);
     url.pathname = '/.netlify/functions/fetch-info';
     fetch(url.href)
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
           return res;
         } else {
           throw new Error('could not retrieve user');
         }
       })
-      .then(res => res.json())
-      .then(res => setData(res))
-      .catch(err => setError(err));
+      .then((res) => res.json())
+      .then((res) => setData(res))
+      .catch((err) => setError(err));
   }, []);
   if (error) {
     return (
@@ -275,7 +272,7 @@ const InfoWrapper = () => {
   const defaultLanguage =
     (data.language || []).indexOf('Dutch') > -1 ? 'nl' : 'en';
   return (
-    <SaveTheDate
+    <Rsvp
       name={data.name}
       number={data.number}
       defaultLanguage={defaultLanguage}

@@ -9,16 +9,21 @@ export const English = {
       <Link to="/">home page</Link>
     </>
   ),
-  std_paragraphs: [
+  std_paragraphs: (
     <>
-      We are very pleased to welcome you in{' '}
-      <q>
-        <a href="https://lacavedesanges.fr">La Cave des Anges</a>
-      </q>{' '}
-      in sunny Carcassonne.
-    </>,
-    'Please confirm your availability and any food restrictions in the following form:',
-  ],
+      <p>
+        We are very pleased to welcome you in{' '}
+        <q>
+          <a href="https://lacavedesanges.fr">La Cave des Anges</a>
+        </q>{' '}
+        in sunny Carcassonne.
+      </p>
+      <p>
+        Please confirm your availability and any food restrictions in the
+        following form:
+      </p>
+    </>
+  ),
   home_getting_married: 'are getting married',
   home_postponed: (
     <>
@@ -77,16 +82,21 @@ export const Dutch = {
       <Link to="/">hoofdpagina</Link>
     </>
   ),
-  std_paragraphs: [
+  std_paragraphs: (
     <>
-      We zijn zeer blij om jullie in{' '}
-      <q>
-        <a href="https://lacavedesanges.fr">La Cave des Anges</a>
-      </q>
-      , Carcassonne uit te nodigen.
-    </>,
-    'Laat ons weten of je er kan zijn, en of je bepaalde restricties hebt in het formulier:',
-  ],
+      <p>
+        We zijn zeer blij om jullie in{' '}
+        <q>
+          <a href="https://lacavedesanges.fr">La Cave des Anges</a>
+        </q>
+        , Carcassonne uit te nodigen.
+      </p>
+      <p>
+        Laat ons weten of je er kan zijn, en of je bepaalde restricties hebt in
+        het formulier:
+      </p>
+    </>
+  ),
   home_getting_married: 'gaan trouwen',
   home_postponed: (
     <>
