@@ -73,6 +73,48 @@ export const English = {
       </p>
     </>
   ),
+  home_dresscode: (
+    <>
+      <h2>Dresscode</h2>
+      <p>
+        We expect the weather in Carcassonne to be quite hot. That's why we
+        understand it definitely if you would want to pick a less formal outfit.
+      </p>
+      <p>
+        However, you definitely wouldn't be the only one being in a suit or
+        dress! We would appreciate it if men could wear a shirt.
+      </p>
+    </>
+  ),
+  home_gifts: (
+    <>
+      <h2>Gifts</h2>
+      <p>
+        We've long been thinking what gifts to suggest you get us, but we still
+        don't know what's best. We like experiences, and fun time with our
+        friends above all. Of course, if you want to give something, we'll be
+        very grateful!
+      </p>
+    </>
+  ),
+  form_food: 'Choice of plate',
+  form_rsvp_couscous: 'couscous royale',
+  form_rsvp_tajine_poulet: 'chicken tajine olives/lemons',
+  form_rsvp_tajine_agneau: 'lamb tajine almonds/prunes',
+  form_rsvp_tajine_legumes: 'vegetable tajine',
+  confirmation_title: 'Confirm your attendance',
+  confirmation_subtext: (
+    <>
+      <p>
+        Thank you for confirming your attendance through the previous messages.
+        We're very excited to welcome you in Carcassonne!
+      </p>
+      <p>
+        We'd like to know which food you'd like to have, as well as any other
+        things you think we should know.
+      </p>
+    </>
+  ),
 };
 
 export const Dutch = {
@@ -150,6 +192,48 @@ export const Dutch = {
           ons te contacteren
         </a>{' '}
         als je vragen hebt.
+      </p>
+    </>
+  ),
+  home_dresscode: (
+    <>
+      <h2>Dresscode</h2>
+      <p>
+        We verwachten dat het warm zal zijn in Carcassonne. Daarom verstaaan we
+        het zeker als je een minder formele outfit wil kiezen.
+      </p>
+      <p>
+        Desalniettemin zou je ook niet de enige persoon in kostuum of jurk zijn!
+        We zouden het leuk vinden als je toch een hemd zou kiezen.
+      </p>
+    </>
+  ),
+  home_gifts: (
+    <>
+      <h2>Cadeaus</h2>
+      <p>
+        We hebben lang nagedacht over welke cadeaus we willen, maar weten niet
+        wat op te lijsten. We houden van belevingen en goede ervaringen met
+        jullie allemaal. Natuurlijk als je een iets wil given zullen we zeer
+        dankbaar zijn!
+      </p>
+    </>
+  ),
+  form_food: 'Keuze gerecht',
+  form_rsvp_couscous: 'couscous royale',
+  form_rsvp_tajine_poulet: 'tajine poulet olives/citrons',
+  form_rsvp_tajine_agneau: 'tajine agneau amandes/pruneaux',
+  form_rsvp_tajine_legumes: 'tajine legumes',
+  confirmation_title: 'bevestig je aanwezigheid',
+  confirmation_subtext: (
+    <>
+      <p>
+        Bedankt om je aanwezigheid op onze trouw te bevestigen via de vorige
+        berichten. We zijn in de wolken om jullie te ontvangen in Carcassonne!
+      </p>
+      <p>
+        We zullen je graag vragen wat je wilt eten, en of we nog iets anders qua
+        informatie moeten weten.
       </p>
     </>
   ),

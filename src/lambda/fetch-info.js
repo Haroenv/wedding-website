@@ -43,6 +43,7 @@ export async function handler(event, context) {
         RSVP,
         'RSVP 2': RSVP2,
         'RSVP 3': RSVP3,
+        'RSVP 4': RSVP4,
       },
       // @ts-ignore .find isn't typed
     } = await base('Invitations').find(id);
@@ -59,12 +60,16 @@ export async function handler(event, context) {
       fields: { number_guests: guests_3, comments: comments_3 },
     } = await getFallbackInfo(base, RSVP3);
 
+    const {
+      fields: { number_guests: guests_4, comments: comments_4 },
+    } = await getFallbackInfo(base, RSVP4);
+
     return {
       statusCode: 200,
       body: JSON.stringify({
         name: name,
-        number: guests_3 || guests_2 || guests_1 || guests,
-        comments: comments_3 || comments_2 || comments_1,
+        number: guests_4 ||guests_3 || guests_2 || guests_1 || guests,
+        comments: comments_4 ||comments_3 || comments_2 || comments_1,
         language,
       }),
     };

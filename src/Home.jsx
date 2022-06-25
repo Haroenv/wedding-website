@@ -102,6 +102,8 @@ const Home = () => {
           {getText('home_practical')}
           <img src={planImage} alt="Plan of La Cave Des Anges" />
         </section>
+        <section>{getText('home_dresscode')}</section>
+        <section>{getText('home_gifts')}</section>
       </div>
       <footer>
         <p>
@@ -113,3 +115,6 @@ const Home = () => {
 };
 
 export default Home;
+
+// dress code
+// gift
