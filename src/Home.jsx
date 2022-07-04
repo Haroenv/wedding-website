@@ -90,7 +90,7 @@ const Home = () => {
               bottom: 0,
               right: 0,
               background: 'black',
-              padding: '.2em .5em'
+              padding: '.2em .5em',
             }}
           >
             {getText('home_next_image')}
@@ -104,8 +104,10 @@ const Home = () => {
         </section>
         <section>{getText('home_dresscode')}</section>
         <section>{getText('home_gifts')}</section>
+        <section>{getText('home_timing')}</section>
       </div>
       <footer>
+        <hr className="flourish" />
         <p>
           contact: <a href={getMailTo('Contact')}>{emailAddress}</a>
         </p>

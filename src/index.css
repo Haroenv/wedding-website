@@ -53,7 +53,7 @@ button {
 }
 
 .invisible-button * {
-  display: block
+  display: block;
 }
 
 textarea {
@@ -211,3 +211,16 @@ p {
 address {
   font-style: normal;
 }
+
+.narrow-center {
+  width: max-content;
+  margin: 0 auto
+}
+
+.subtle-list {
+  text-align: left;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+

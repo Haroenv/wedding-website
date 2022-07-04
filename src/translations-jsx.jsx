@@ -97,6 +97,40 @@ export const English = {
       </p>
     </>
   ),
+  home_timing: (
+    <>
+      <h2>Timing</h2>
+      <p>
+        <a
+          href="webcal://p53-caldav.icloud.com/published/2/NTkwNDA4OTAzNTkwNDA4OUdDaF75R5TLhDwOtMjIgqlTK26031Z1N5Nj1DpWdkPuhtLhX-MDHL-Gys1q2-Y-BBfDw-wTLnOreT-qToDKO4k"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          You can follow the online calendar we created via this link.
+        </a>
+      </p>
+      <div className="narrow-center">
+        <section>
+          <h3>Saturday 30 July</h3>
+          <ul className="subtle-list">
+            <li>13:15-14:00 — Ceremony</li>
+            <li>14:00-14:30 — Group Pictures</li>
+            <li>14:30-17:30 — Outdoor Activities</li>
+            <li>17:30-19:45 — Dinner</li>
+            <li>19:45-20:30 — Party Games</li>
+            <li>20:30-04:00 — Dancing</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Sunday 31 July</h3>
+          <p></p>
+          <ul className="subtle-list">
+            <li>11:30-15:00 — Quality Time</li>
+          </ul>
+        </section>
+      </div>
+    </>
+  ),
   form_food: 'Choice of plate',
   form_rsvp_couscous: 'couscous royale',
   form_rsvp_tajine_poulet: 'chicken tajine olives/lemons',
@@ -217,6 +251,40 @@ export const Dutch = {
         jullie allemaal. Natuurlijk als je een iets wil given zullen we zeer
         dankbaar zijn!
       </p>
+    </>
+  ),
+  home_timing: (
+    <>
+      <h2>Planning</h2>
+      <p>
+        <a
+          href="webcal://p53-caldav.icloud.com/published/2/NTkwNDA4OTAzNTkwNDA4OUdDaF75R5TLhDwOtMjIgqlTK26031Z1N5Nj1DpWdkPuhtLhX-MDHL-Gys1q2-Y-BBfDw-wTLnOreT-qToDKO4k"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Je kan deze kalender ook toevoegen via deze link.
+        </a>
+      </p>
+      <div className="narrow-center">
+        <section>
+          <h3>zaterdag 30 juli</h3>
+          <ul className="subtle-list">
+            <li>13:15-14:00 — Ceremonie</li>
+            <li>14:00-14:30 — Groepsfoto's</li>
+            <li>14:30-17:30 — Buitenactiviteiten</li>
+            <li>17:30-19:45 — Eten</li>
+            <li>19:45-20:30 — Feestspelen</li>
+            <li>20:30-04:00 — Dansen</li>
+          </ul>
+        </section>
+        <section>
+          <h3>zondag 31 juli</h3>
+          <p></p>
+          <ul className="subtle-list">
+            <li>11:30-15:00 — Kwaliteitstijd</li>
+          </ul>
+        </section>
+      </div>
     </>
   ),
   form_food: 'Keuze gerecht',
