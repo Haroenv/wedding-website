@@ -62,17 +62,15 @@ async function main() {
     'utf-8'
   );
 
-  // prettier-ignore
   // @ts-ignore
-  const invitations = /** @type Airtable.Table<Invitee> */(await base(
-    'Invitations'
-  ));
+  const invitations = /** @type Airtable.Table<Invitee> */ (
+    await base('Invitations')
+  );
 
-  // prettier-ignore
   // @ts-ignore
-  const rsvpBase = /** @type Airtable.Table<{invitation:string[]}> */(await base(
-    'RSVP 3'
-  ));
+  const rsvpBase = /** @type Airtable.Table<{invitation:string[]}> */ (
+    await base('RSVP 3')
+  );
 
   const rsvps = await rsvpBase.select().all();
 
@@ -96,8 +94,8 @@ async function main() {
         if (token === 'user_id') {
           return id;
         }
-        // prettier-ignore
-        return /** @type string */(getTranslation(language, token));
+
+        return /** @type string */ (getTranslation(language, token));
       });
 
       const textEmailTemplate = fields.language.includes('Dutch')
@@ -118,9 +116,12 @@ async function main() {
 
       const { html } = mjml(mjmlEmail, { minify: true });
 
+      const subject = /**@type string */ (
+        getTranslation(language, 'email_subject')
+      );
+
       return {
-        // prettier-ignore
-        subject: /**@type string */(getTranslation(language, 'email_subject')),
+        subject,
         to: {
           name,
           email,
@@ -134,7 +135,7 @@ async function main() {
       };
     });
 
-  console.log(emails.map(e => e.to));
+  console.log(emails.map((e) => e.to));
 
   // await sgMail.send(emails, true);
 }
