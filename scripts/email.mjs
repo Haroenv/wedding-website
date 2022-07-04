@@ -52,7 +52,10 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 const tokenRegex = /{{\s*(.*)\s*}}/g;
 
 async function main() {
-  const template = await readFile(getAdjacentFile('rsvp.mjml'), 'utf-8');
+  const template = await readFile(
+    getAdjacentFile('confirmation.mjml'),
+    'utf-8'
+  );
   const templateTxtEn = await readFile(
     getAdjacentFile('invite-en.txt'),
     'utf-8'
@@ -69,18 +72,28 @@ async function main() {
 
   // @ts-ignore
   const rsvpBase = /** @type Airtable.Table<{invitation:string[]}> */ (
-    await base('RSVP 3')
+    await base('RSVP 4')
   );
 
+  const previousRsvpBase =
+    // @ts-ignore
+    /** @type Airtable.Table<{invitation:string[], rsvp: 'yes' | 'no' | 'maybe'}> */ (
+      await base('RSVP 3')
+    );
+
   const rsvps = await rsvpBase.select().all();
+  const previousRsvps = await previousRsvpBase.select().all();
 
   const alreadyInvited = rsvps.flatMap((r) => r.fields.invitation);
+  const alreadyDeclined = previousRsvps.flatMap((r) =>
+    r.fields.rsvp === 'no' ? r.fields.invitation : []
+  );
 
   const invitees = await invitations.select().all();
 
   const emails = invitees
     .filter(({ id }) => {
-      return alreadyInvited.indexOf(id) === -1;
+      return !alreadyInvited.includes(id) && !alreadyDeclined.includes(id);
     })
     .map((invitee) => {
       const { fields, id } = invitee;
@@ -110,7 +123,8 @@ async function main() {
           if (token === 'user_id') {
             return id;
           }
-          return '';
+
+          throw new Error('replace missing');
         }
       );
 
@@ -135,9 +149,12 @@ async function main() {
       };
     });
 
+  const us = emails.filter((e) => e.to.name === 'Abi & Haroen');
+
+  console.log(us);
   console.log(emails.map((e) => e.to));
 
-  // await sgMail.send(emails, true);
+  await sgMail.send(emails, true);
 }
 
 main().catch(console.error);

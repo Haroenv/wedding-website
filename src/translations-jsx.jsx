@@ -133,11 +133,10 @@ export const English = {
     </>
   ),
   form_food: 'Choice of plate',
-  form_rsvp_couscous: 'couscous royale',
+  form_rsvp_couscous: 'couscous royal',
   form_rsvp_tajine_poulet: 'chicken tajine olives/lemons',
   form_rsvp_tajine_agneau: 'lamb tajine almonds/prunes',
   form_rsvp_tajine_legumes: 'vegetable tajine',
-  confirmation_title: 'Confirm your attendance',
   confirmation_subtext: (
     <>
       <p>
@@ -289,11 +288,10 @@ export const Dutch = {
     </>
   ),
   form_food: 'Keuze gerecht',
-  form_rsvp_couscous: 'couscous royale',
+  form_rsvp_couscous: 'couscous royal',
   form_rsvp_tajine_poulet: 'tajine poulet olives/citrons',
   form_rsvp_tajine_agneau: 'tajine agneau amandes/pruneaux',
   form_rsvp_tajine_legumes: 'tajine legumes',
-  confirmation_title: 'bevestig je aanwezigheid',
   confirmation_subtext: (
     <>
       <p>
