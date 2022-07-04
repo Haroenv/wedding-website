@@ -32,13 +32,14 @@ export const English = {
   std_save_the_date: 'Save the date',
   std_the_wedding_of: 'For the wedding of',
   full_date: '30 July 2022',
+  switch_language: 'Verander naar Nederlands',
 
   mail_preamble: 'We hope to see you at our wedding in Carcassonne.',
   mail_body:
     'Please let us know if you can make it by filling in the following form:',
   mail_more_info:
     'more information available on <a href="https://abi-and-haroen.fr">our site</a>. If you have any trouble with the previous link — go enter the following in your browser:',
-  switch_language: 'Verander naar Nederlands',
+  mail_body_confirmation: 'TODO',
 
   ...jsx.English,
 };
@@ -78,13 +79,13 @@ export const Dutch = {
   std_save_the_date: 'Hou de datum vrij',
   std_the_wedding_of: 'voor het huwelijk van',
   full_date: '30 juli 2022',
+  switch_language: 'Switch to English',
 
-  mail_preamble:
-    'We hopen jullie op onze trouw in Carcassonne te zien!',
+  mail_preamble: 'We hopen jullie op onze trouw in Carcassonne te zien!',
   mail_body: 'Laat ons weten via het volgende formulier of je erbij kan zijn:',
   mail_more_info:
     'meer info op <a href="https://abi-and-haroen.fr">onze site</a>. Als de link niet werkt, kopieer het volgende in je browser:',
-  switch_language: 'Switch to English',
+  mail_body_confirmation: 'TODO',
 
   ...jsx.Dutch,
 };
