@@ -39,7 +39,8 @@ export const English = {
     'Please let us know if you can make it by filling in the following form:',
   mail_more_info:
     'more information available on <a href="https://abi-and-haroen.fr">our site</a>. If you have any trouble with the previous link — go enter the following in your browser:',
-  mail_body_confirmation: 'TODO',
+  mail_body_confirmation:
+    'To help us finish planning, please fill in the following form with your food preferences. Also note we have given more information on the main website once you fill in the form!',
 
   ...jsx.English,
 };
@@ -85,7 +86,8 @@ export const Dutch = {
   mail_body: 'Laat ons weten via het volgende formulier of je erbij kan zijn:',
   mail_more_info:
     'meer info op <a href="https://abi-and-haroen.fr">onze site</a>. Als de link niet werkt, kopieer het volgende in je browser:',
-  mail_body_confirmation: 'TODO',
+  mail_body_confirmation:
+    'Om onze planning te helpen, vul het volgende formulier in met je etensvoorkeuren. We hebben ook nog meer info op de website als je het formulier hebt ingevuld!',
 
   ...jsx.Dutch,
 };
