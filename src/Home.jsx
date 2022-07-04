@@ -97,14 +97,14 @@ const Home = () => {
           </span>
         </button>
 
-        <section>{getText('home_getting_there')}</section>
-        <section>
-          {getText('home_practical')}
+        <section id="getting-there">{getText('home_getting_there')}</section>
+        <section id="timing">{getText('home_timing')}</section>
+        <section id="dress-code">{getText('home_dresscode')}</section>
+        <section id="gifts">{getText('home_gifts')}</section>
+        <section id="plan">
+          <h2>Plan</h2>
           <img src={planImage} alt="Plan of La Cave Des Anges" />
         </section>
-        <section>{getText('home_dresscode')}</section>
-        <section>{getText('home_gifts')}</section>
-        <section>{getText('home_timing')}</section>
       </div>
       <footer>
         <hr className="flourish" />

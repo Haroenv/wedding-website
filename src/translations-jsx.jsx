@@ -109,6 +109,7 @@ export const English = {
           You can follow the online calendar we created via this link.
         </a>
       </p>
+      <p>On Sunday you can come as well, including using the swimming pool!</p>
       <div className="narrow-center">
         <section>
           <h3>Saturday 30 July</h3>
@@ -265,6 +266,7 @@ export const Dutch = {
           Je kan deze kalender ook toevoegen via deze link.
         </a>
       </p>
+      <p>Op de zondag kan je ook langskomen, er is ook een zwembad!</p>
       <div className="narrow-center">
         <section>
           <h3>zaterdag 30 juli</h3>
@@ -279,7 +281,6 @@ export const Dutch = {
         </section>
         <section>
           <h3>zondag 31 juli</h3>
-          <p></p>
           <ul className="subtle-list">
             <li>11:30-15:00 — Kwaliteitstijd</li>
           </ul>
