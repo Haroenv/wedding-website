@@ -56,6 +56,17 @@ const Form = ({ name, number: defaultNumber, getText }) => {
   // prettier-ignore
   const [formState, setFormState] = useState(/** @type FormState */('clean'));
 
+  if (formState === 'submitted') {
+    return (
+      <div className="futura">
+        <p>{getFormStateText(getText, formState)}</p>
+        <button type="button" onClick={() => setFormState('clean')}>
+          {getText('restart_form')}
+        </button>
+      </div>
+    );
+  }
+
   return (
     <form
       className="futura"

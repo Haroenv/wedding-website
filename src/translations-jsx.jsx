@@ -9,6 +9,7 @@ export const English = {
       <Link to="/">home page</Link>
     </>
   ),
+  restart_form: 'fill form in again',
   std_paragraphs: (
     <>
       <p>
@@ -158,6 +159,7 @@ export const Dutch = {
       <Link to="/">hoofdpagina</Link>
     </>
   ),
+  restart_form: 'vul formulier opnieuw in',
   std_paragraphs: (
     <>
       <p>
