@@ -154,7 +154,7 @@ async function main() {
   console.log(us);
   console.log(emails.map((e) => e.to));
 
-  await sgMail.send(emails, true);
+  // await sgMail.send(emails, true);
 }
 
 main().catch(console.error);
