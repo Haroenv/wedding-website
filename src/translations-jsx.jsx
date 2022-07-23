@@ -115,6 +115,7 @@ export const English = {
         <section>
           <h3>Saturday 30 July</h3>
           <ul className="subtle-list">
+            <li>12:00-13:15 — Welcome</li>
             <li>13:15-14:00 — Ceremony</li>
             <li>14:00-14:30 — Group Pictures</li>
             <li>14:30-17:30 — Outdoor Activities</li>
@@ -272,6 +273,7 @@ export const Dutch = {
         <section>
           <h3>zaterdag 30 juli</h3>
           <ul className="subtle-list">
+            <li>12:00-13:15 — Welkom</li>
             <li>13:15-14:00 — Ceremonie</li>
             <li>14:00-14:30 — Groepsfoto's</li>
             <li>14:30-17:30 — Buitenactiviteiten</li>
