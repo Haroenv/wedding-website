@@ -25,7 +25,7 @@ export const English = {
       </p>
     </>
   ),
-  home_getting_married: 'are getting married',
+  home_getting_married: 'got married',
   home_postponed: (
     <>
       <p>
@@ -176,7 +176,7 @@ export const Dutch = {
       </p>
     </>
   ),
-  home_getting_married: 'gaan trouwen',
+  home_getting_married: 'zijn getrouwd',
   home_postponed: (
     <>
       <p>
