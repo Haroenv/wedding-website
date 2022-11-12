@@ -8,4 +8,6 @@ declare module 'object.fromentries' {
   export default Object.fromEntries;
 }
 
+declare module 'unfetch/polyfill';
+
 declare module 'http-proxy-middleware';
