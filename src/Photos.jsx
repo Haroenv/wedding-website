@@ -44,7 +44,7 @@ const Photos = ({ defaultLanguage, name, urls }) => {
         <img
           src={image.url}
           alt={/** @type string */ (image.alt)}
-          style={{ height: '100%' }}
+          style={{ maxHeight: '100%' }}
         />
         <span
           style={{
