@@ -151,7 +151,7 @@ export const English = {
       </p>
     </>
   ),
-  photos_title: 'Photos',
+  photos_title: 'Wedding album',
   photos_subtitle: "We've collected some photos from the wedding for you",
   photos_made_by: 'made by',
   photo_1_alt: 'abi & haroen hugging',
@@ -314,7 +314,7 @@ export const Dutch = {
       </p>
     </>
   ),
-  photos_title: "Foto's",
+  photos_title: "Trouwalbum",
   photos_subtitle: "Hier zijn de foto's van onze trouw, speciaal voor jou",
   photos_made_by: 'gemaakt door',
   photo_1_alt: 'abi & haroen knuffelen',
