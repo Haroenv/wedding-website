@@ -1,0 +1,14 @@
+Salut {{name}},
+
+Bedankt dat jullie erbij waren op onze trouw, het zou niet hetzelfde geweest zijn zonder jullie. We hebben een super tijd gehad en hopen dat jullie dat ook hadden!
+
+We willen iedereen nogmaals bedanken voor de cadeaus of geld, wat heeft bijgedragen aan onze huwelijksreis in augustus.
+
+We zijn heel blij te kunnen aankondigen dat je nu alle foto's van onze ceremonie, trouw en huwelijksreis kunt bekijken! We hopen dat je ze leuk vindt en kijken uit naar je reacties.
+
+Je mag alle foto's die je leuk vindt delen op sociale media, waar je ook de fotograaf kan taggen.
+
+https://abi-and-haroen.fr/photos?id={{user_id}}
+
+Groetjes!
+Abi & Haroen

@@ -52,16 +52,14 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 const tokenRegex = /{{\s*(.*)\s*}}/g;
 
 async function main() {
-  const template = await readFile(
-    getAdjacentFile('confirmation.mjml'),
-    'utf-8'
-  );
+  const templateEn = await readFile(getAdjacentFile('photos-en.mjml'), 'utf-8');
+  const templateNl = await readFile(getAdjacentFile('photos-nl.mjml'), 'utf-8');
   const templateTxtEn = await readFile(
-    getAdjacentFile('invite-en.txt'),
+    getAdjacentFile('photos-en.txt'),
     'utf-8'
   );
   const templateTxtNl = await readFile(
-    getAdjacentFile('invite-nl.txt'),
+    getAdjacentFile('photos-nl.txt'),
     'utf-8'
   );
 
@@ -71,9 +69,10 @@ async function main() {
   );
 
   // @ts-ignore
-  const rsvpBase = /** @type Airtable.Table<{invitation:string[]}> */ (
-    await base('RSVP 4')
-  );
+  const rsvpBase =
+    /** @type Airtable.Table<{invitation:string[], rsvp: 'yes' | 'no' | 'maybe'}> */ (
+      await base('RSVP 4')
+    );
 
   const previousRsvpBase =
     // @ts-ignore
@@ -84,7 +83,9 @@ async function main() {
   const rsvps = await rsvpBase.select().all();
   const previousRsvps = await previousRsvpBase.select().all();
 
-  const alreadyInvited = rsvps.flatMap((r) => r.fields.invitation);
+  const alreadyInvited = rsvps.flatMap((r) =>
+    r.fields.rsvp === 'yes' ? r.fields.invitation : []
+  );
   const alreadyDeclined = previousRsvps.flatMap((r) =>
     r.fields.rsvp === 'no' ? r.fields.invitation : []
   );
@@ -93,13 +94,16 @@ async function main() {
 
   const emails = invitees
     .filter(({ id }) => {
-      return !alreadyInvited.includes(id) && !alreadyDeclined.includes(id);
+      return alreadyInvited.includes(id);
     })
     .map((invitee) => {
       const { fields, id } = invitee;
 
       const { name, email = 'help@abi-and-haroen.fr' } = fields;
       const language = fields.language.includes('Dutch') ? 'nl' : 'en';
+      const template = fields.language.includes('Dutch')
+        ? templateNl
+        : templateEn;
       const mjmlEmail = template.replace(tokenRegex, (_match, token) => {
         if (token === 'name') {
           return name;

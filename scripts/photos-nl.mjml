@@ -1,0 +1,34 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Parisienne" href="https://fonts.googleapis.com/css?family=Parisienne" />
+    <mj-attributes>
+      <mj-class name="font-parisienne" font-family="Parisienne,'Vladimir Script',cursive" font-size="3.5rem" />
+      <mj-class name="font-futura" font-family="Futura,'Trebuchet MS',sans-serif" text-transform="uppercase" />
+      <mj-class name="font-futura-body" font-family="Futura,'Trebuchet MS',sans-serif" />
+      <mj-text align="center" color="white" padding-top="32px" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="black">
+    <mj-section full-width="full-width" background-color="black">
+      <mj-column css-class="center" width="100%">
+        <mj-text mj-class="font-futura" font-size="20px">
+          De foto's zijn er!
+        </mj-text>
+        <mj-text mj-class="font-futura-body">
+          <p>Salut {{name}},</p>
+          <p>Bedankt dat jullie erbij waren op onze trouw, het zou niet hetzelfde geweest zijn zonder jullie. We hebben een super tijd gehad en hopen dat jullie dat ook hadden!</p>
+          <p>We willen iedereen nogmaals bedanken voor de cadeaus of geld, wat heeft bijgedragen aan onze huwelijksreis in augustus.</p>
+          <p>We zijn heel blij te kunnen aankondigen dat je nu alle foto's van onze ceremonie, trouw en huwelijksreis kunt bekijken! We hopen dat je ze leuk vindt en kijken uit naar je reacties.</p>
+          <p>Je mag alle foto's die je leuk vindt delen op sociale media, waar je ook de fotograaf kan taggen.</p>
+        </mj-text>
+        <mj-button mj-class="font-futura" color="white" background-color="black" border="1px solid white" border-radius="0" href="https://abi-and-haroen.fr/photos?id={{user_id}}">
+          bekijk ze hier
+        </mj-button>
+        <mj-text mj-class="font-futura-body">if this button does not work, copy and paste the following link:</mj-text>
+        <mj-text mj-class="font-futura-body">https://abi-and-haroen.fr/photos?id={{user_id}}</mj-text>
+        <mj-text mj-class="font-futura-body">groetjes,</mj-text>
+        <mj-text mj-class="font-parisienne">Abi &amp; Haroen</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

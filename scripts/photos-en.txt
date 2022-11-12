@@ -1,0 +1,14 @@
+Salut {{name}},
+
+Thank you so much for coming to our wedding, it would not have been the same without yous. We had an amazing time and hope yous did too!
+
+We'd also like to thank everyone again who gave a gift or money, which contributed towards our honeymoon in August.
+
+We're happy to announce that you can now view all pictures of our civil ceremony, wedding and honeymoon! We hope you enjoy them, and look forward to seeing your reactions.
+
+Feel free to share any pictures you like on social media, tagging the respective photographer.
+
+https://abi-and-haroen.fr/photos?id={{user_id}}
+
+Lots of love!
+Abi & Haroen
