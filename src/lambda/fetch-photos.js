@@ -28,7 +28,7 @@ export async function handler(event, context) {
       throw new Error('unauthorized id');
     }
 
-    const urls = await base('links').select().all();
+    const urls = await base('links').select({ view: 'Grid view' }).all();
 
     return {
       statusCode: 200,
