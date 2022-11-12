@@ -8,6 +8,7 @@ import FirstRsvp from './FirstRsvp';
 import SaveTheDate from './SaveTheDate';
 import Rsvp from './Rsvp';
 import Confirmation from './Confirmation';
+import Photos from './Photos';
 
 import './index.css';
 
@@ -19,6 +20,7 @@ ReactDOM.render(
       <SaveTheDate path="/save-the-date" />
       <Rsvp path="/rsvp" />
       <Confirmation path="/confirmation" />
+      <Photos path="/photos" />
     </Router>
   </ErrorBoundary>,
   document.getElementById('root')

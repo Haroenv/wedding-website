@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import image from './images/lake-district.jpg';
-// @ts-ignore
 import 'unfetch/polyfill';
 import { useLanguage } from './useLanguage';
 

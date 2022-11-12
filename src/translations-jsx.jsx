@@ -151,6 +151,12 @@ export const English = {
       </p>
     </>
   ),
+  photos_title: 'Photos',
+  photos_subtitle: "We've collected some photos from the wedding for you",
+  photos_made_by: 'made by',
+  photo_1_alt: 'abi & haroen hugging',
+  photo_2_alt: 'abi & haroen dancing',
+  photo_3_alt: 'abi & haroen laughing, covered in flower petals',
 };
 
 export const Dutch = {
@@ -308,4 +314,10 @@ export const Dutch = {
       </p>
     </>
   ),
+  photos_title: "Foto's",
+  photos_subtitle: "Hier zijn de foto's van onze trouw, speciaal voor jou",
+  photos_made_by: 'gemaakt door',
+  photo_1_alt: 'abi & haroen knuffelen',
+  photo_2_alt: 'abi & haroen dansen',
+  photo_3_alt: 'abi & haroen lachen, bedekt met bloemblaadjes',
 };
