@@ -2,6 +2,8 @@ import * as jsx from './translations-jsx.jsx';
 // const jsx = { English: {}, Dutch: {} };
 
 export const English = {
+  welcome_to_website: 'Welcome to the website of',
+  nice_day: 'Have a nice day!',
   you_are_invited: 'You are invited',
   the_wedding_of: 'to the wedding of',
   abi_and_haroen: 'Abi & Haroen',
@@ -50,6 +52,8 @@ export const English = {
  * @type {typeof English}
  */
 export const Dutch = {
+  welcome_to_website: 'Welkom op de website van',
+  nice_day: 'Tot de volgende!',
   you_are_invited: 'Je bent uitgenodigd',
   the_wedding_of: 'voor het huwelijk van',
   abi_and_haroen: 'Abi & Haroen',
